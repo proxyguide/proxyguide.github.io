@@ -1,0 +1,208 @@
+<!DOCTYPE html>
+<html class="no-js" lang="zh"><head><meta charset="utf-8"/><meta content="width=device-width,initial-scale=1" name="viewport"/><meta content="Alpine 上安装 v2rayA 教程。" name="description"/><meta content="William Wallace" name="author"/><link href="https://proxyguide.org/v2ray/install-v2raya-on-alpine-linux/" rel="canonical"/><link href="../../assets/images/favicon.png" rel="icon"/><meta content="mkdocs-1.6.1, mkdocs-material-9.6.18" name="generator"/><title>Alpine 上安装 v2rayA 教程 - 科学上网宝典</title><link href="../../assets/stylesheets/main.7e37652d.min.css" rel="stylesheet"/><link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/><link href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&amp;display=fallback" rel="stylesheet"/><style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style><script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script><script id="__analytics">function __md_analytics(){function e(){dataLayer.push(arguments)}window.dataLayer=window.dataLayer||[],e("js",new Date),e("config","G-17ZBKD9TX5"),document.addEventListener("DOMContentLoaded",(function(){document.forms.search&&document.forms.search.query.addEventListener("blur",(function(){this.value&&e("event","search",{search_term:this.value})}));document$.subscribe((function(){var t=document.forms.feedback;if(void 0!==t)for(var a of t.querySelectorAll("[type=submit]"))a.addEventListener("click",(function(a){a.preventDefault();var n=document.location.pathname,d=this.getAttribute("data-md-value");e("event","feedback",{page:n,data:d}),t.firstElementChild.disabled=!0;var r=t.querySelector(".md-feedback__note [data-md-value='"+d+"']");r&&(r.hidden=!1)})),t.hidden=!1})),location$.subscribe((function(t){e("config","G-17ZBKD9TX5",{page_path:t.pathname})}))}));var t=document.createElement("script");t.async=!0,t.src="https://www.googletagmanager.com/gtag/js?id=G-17ZBKD9TX5",document.getElementById("__analytics").insertAdjacentElement("afterEnd",t)}</script><script>"undefined"!=typeof __md_analytics&&__md_analytics()</script><link href="../../assets/stylesheets/glightbox.min.css" rel="stylesheet"/><script src="../../assets/javascripts/glightbox.min.js"></script><style id="glightbox-style">
+            html.glightbox-open { overflow: initial; height: 100%; }
+            .gslide-title { margin-top: 0px; user-select: text; }
+            .gslide-desc { color: #666; user-select: text; }
+            .gslide-image img { background: white; }
+            .gscrollbar-fixer { padding-right: 15px; }
+            .gdesc-inner { font-size: 0.75rem; }
+            body[data-md-color-scheme="slate"] .gdesc-inner { background: var(--md-default-bg-color); }
+            body[data-md-color-scheme="slate"] .gslide-title { color: var(--md-default-fg-color); }
+            body[data-md-color-scheme="slate"] .gslide-desc { color: var(--md-default-fg-color); }
+        </style><meta content="Alpine 上安装 v2rayA 教程" name="title"/><link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" rel="stylesheet"/><meta content="website" property="og:type"/><meta content="https://proxyguide.org/v2ray/install-v2raya-on-alpine-linux" property="og:url"/><meta content="Alpine 上安装 v2rayA 教程" property="og:title"/><meta content="Alpine 上安装 v2rayA 教程。" property="og:description"/><meta content="https://www.ultralytics.com/images/social.png" property="og:image"/><meta content="summary_large_image" property="twitter:card"/><meta content="https://proxyguide.org/v2ray/install-v2raya-on-alpine-linux" property="twitter:url"/><meta content="Alpine 上安装 v2rayA 教程" property="twitter:title"/><meta content="Alpine 上安装 v2rayA 教程。" property="twitter:description"/><meta content="https://www.ultralytics.com/images/social.png" property="twitter:image"/><style>
+.md-content__button[onclick*="copyMarkdownForLLM"] svg {
+    width: 1.2rem;
+    height: 1.2rem;
+    fill: currentColor;
+}
+
+.git-info, .dates-container, .authors-container, .share-buttons {
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    flex-wrap: wrap;
+}
+
+.git-info {
+    font-size: 0.8em;
+    color: grey;
+    margin-bottom: 10px;
+}
+
+.dates-container, .authors-container {
+    margin-bottom: 10px;
+}
+
+.date-item, .author-link, .share-button {
+    display: flex;
+    align-items: center;
+    cursor: pointer;
+}
+
+.date-item {
+    margin-right: 10px;
+}
+
+.hover-item {
+    transition: all 0.2s ease;
+    filter: grayscale(100%);
+}
+
+.date-item .hover-item {
+    font-size: 1.6em;
+    margin-right: 5px;
+}
+
+.author-link .hover-item {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    margin-right: 3px;
+    background-color: #f0f0f0;  /* Placeholder color */
+    opacity: 0;  /* Start fully transparent */
+    transition: opacity 0.3s ease-in-out;
+}
+
+.author-link .hover-item[src] {
+    opacity: 1;  /* Fade in when src is set (image loaded) */
+}
+
+.share-buttons {
+    margin-top: 10px;
+}
+
+.share-button {
+    background-color: #1da1f2;
+    color: white;
+    padding: 6px 12px;
+    border-radius: 5px;
+    border: none;
+    font-size: 0.95em;
+    margin: 5px;
+    transition: all 0.2s ease;
+}
+
+.share-button.linkedin {
+    background-color: #0077b5;
+}
+
+.share-button i {
+    margin-right: 5px;
+    font-size: 1.1em;
+}
+
+/* Hover effects */
+.share-button:hover,
+.hover-item:hover {
+    color: var(--md-accent-fg-color);
+    transform: scale(1.1);
+    filter: brightness(1.2) grayscale(0%);
+}
+
+@media (max-width: 1024px) {
+    .git-info {
+        flex-direction: column;
+        align-items: flex-end;
+    }
+    .dates-container, .authors-container {
+        width: 100%;
+    }
+}
+</style><script type="application/ld+json">{"@context": "https://schema.org", "@type": "Article", "headline": "Alpine \u4e0a\u5b89\u88c5 v2rayA \u6559\u7a0b", "image": ["https://www.ultralytics.com/images/social.png"], "datePublished": "2024-09-25 06:24:44 +0000", "dateModified": "2025-08-16 06:24:44 +0000", "author": [{"@type": "Organization", "name": "Ultralytics", "url": "https://ultralytics.com/"}], "abstract": "Alpine \u4e0a\u5b89\u88c5 v2rayA \u6559\u7a0b\u3002"}</script></head> <body dir="ltr"> <input autocomplete="off" class="md-toggle" data-md-toggle="drawer" id="__drawer" type="checkbox"/> <input autocomplete="off" class="md-toggle" data-md-toggle="search" id="__search" type="checkbox"/> <label class="md-overlay" for="__drawer"></label> <div data-md-component="skip"> <a class="md-skip" href="#1-v2ray"> 跳转至 </a> </div> <div data-md-component="announce"> </div> <header class="md-header md-header--shadow" data-md-component="header"> <nav aria-label="页眉" class="md-header__inner md-grid"> <a aria-label="科学上网宝典" class="md-header__button md-logo" data-md-component="logo" href="../.." title="科学上网宝典"> <svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"></path></svg> </a> <label class="md-header__button md-icon" for="__drawer"> <svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"></path></svg> </label> <div class="md-header__title" data-md-component="header-title"> <div class="md-header__ellipsis"> <div class="md-header__topic"> <span class="md-ellipsis"> 科学上网宝典 </span> </div> <div class="md-header__topic" data-md-component="header-topic"> <span class="md-ellipsis"> Alpine 上安装 v2rayA 教程 </span> </div> </div> </div> <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script> <label class="md-header__button md-icon" for="__search"> <svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"></path></svg> </label> <div class="md-search" data-md-component="search" role="dialog"> <label class="md-search__overlay" for="__search"></label> <div class="md-search__inner" role="search"> <form class="md-search__form" name="search"> <input aria-label="搜索" autocapitalize="off" autocomplete="off" autocorrect="off" class="md-search__input" data-md-component="search-query" name="query" placeholder="搜索" required="" spellcheck="false" type="text"/> <label class="md-search__icon md-icon" for="__search"> <svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"></path></svg> <svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"></path></svg> </label> <nav aria-label="查找" class="md-search__options"> <button aria-label="清空当前内容" class="md-search__icon md-icon" tabindex="-1" title="清空当前内容" type="reset"> <svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"></path></svg> </button> </nav> </form> <div class="md-search__output"> <div class="md-search__scrollwrap" data-md-scrollfix="" tabindex="0"> <div class="md-search-result" data-md-component="search-result"> <div class="md-search-result__meta"> 正在初始化搜索引擎 </div> <ol class="md-search-result__list" role="presentation"></ol> </div> </div> </div> </div> </div> </nav> </header> <div class="md-container" data-md-component="container"> <main class="md-main" data-md-component="main"> <div class="md-main__inner md-grid"> <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation"> <div class="md-sidebar__scrollwrap"> <div class="md-sidebar__inner"> <nav aria-label="导航栏" class="md-nav md-nav--primary" data-md-level="0"> <label class="md-nav__title" for="__drawer"> <a aria-label="科学上网宝典" class="md-nav__button md-logo" data-md-component="logo" href="../.." title="科学上网宝典"> <svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"></path></svg> </a> 科学上网宝典 </label> <ul class="md-nav__list" data-md-scrollfix=""> <li class="md-nav__item"> <a class="md-nav__link" href="../.."> <span class="md-ellipsis"> 首页 </span> </a> </li> <li class="md-nav__item md-nav__item--nested"> <input class="md-nav__toggle md-toggle" id="__nav_2" type="checkbox"/> <label class="md-nav__link" for="__nav_2" id="__nav_2_label" tabindex="0"> <span class="md-ellipsis"> HiddifyApp </span> <span class="md-nav__icon md-icon"></span> </label> <nav aria-expanded="false" aria-labelledby="__nav_2_label" class="md-nav" data-md-level="1"> <label class="md-nav__title" for="__nav_2"> <span class="md-nav__icon md-icon"></span> HiddifyApp </label> <ul class="md-nav__list" data-md-scrollfix=""> <li class="md-nav__item"> <a class="md-nav__link" href="../../hiddifyapp/linux/"> <span class="md-ellipsis"> Linux 上安装与配置 HiddifyApp </span> </a> </li> <li class="md-nav__item"> <a class="md-nav__link" href="../../hiddifyapp/macos/"> <span class="md-ellipsis"> MacOS 上安装与配置 HiddifyApp </span> </a> </li> <li class="md-nav__item"> <a class="md-nav__link" href="../../hiddifyapp/windows/"> <span class="md-ellipsis"> Windows 上安装与配置 HiddifyApp </span> </a> </li> <li class="md-nav__item"> <a class="md-nav__link" href="../../hiddifyapp/android/"> <span class="md-ellipsis"> HiddifyApp (Android) 安装与配置教程 </span> </a> </li> <li class="md-nav__item"> <a class="md-nav__link" href="../../hiddifyapp/ios/"> <span class="md-ellipsis"> HiddifyApp (iOS) 安装与配置教程 </span> </a> </li> <li class="md-nav__item"> <a class="md-nav__link" href="../../hiddifyapp/cli/"> <span class="md-ellipsis"> 如何使用 HiddifyCli </span> </a> </li> </ul> </nav> </li> <li class="md-nav__item md-nav__item--nested"> <input class="md-nav__toggle md-toggle" id="__nav_3" type="checkbox"/> <label class="md-nav__link" for="__nav_3" id="__nav_3_label" tabindex="0"> <span class="md-ellipsis"> Clash </span> <span class="md-nav__icon md-icon"></span> </label> <nav aria-expanded="false" aria-labelledby="__nav_3_label" class="md-nav" data-md-level="1"> <label class="md-nav__title" for="__nav_3"> <span class="md-nav__icon md-icon"></span> Clash </label> <ul class="md-nav__list" data-md-scrollfix=""> <li class="md-nav__item"> <a class="md-nav__link" href="../../clash/FlClash-install-on-linux/"> <span class="md-ellipsis"> Linux 上安装与配置 FlClash 教程 </span> </a> </li> <li class="md-nav__item"> <a class="md-nav__link" href="../../clash/FlClash-install-on-macos/"> <span class="md-ellipsis"> Macos 上安装与配置 FlClash 教程 </span> </a> </li> <li class="md-nav__item"> <a class="md-nav__link" href="../../clash/FlClash-install-on-windows/"> <span class="md-ellipsis"> Windows 上安装与配置 FlClash 教程 </span> </a> </li> <li class="md-nav__item"> <a class="md-nav__link" href="../../clash/clash-nyanpasu-windows/"> <span class="md-ellipsis"> Windows 平台 Clash nyanpasu 安装与使用教程 </span> </a> </li> <li class="md-nav__item"> <a class="md-nav__link" href="../../clash/clash-nyanpasu-linux/"> <span class="md-ellipsis"> Linux 平台 Clash nyanpasu 安装与使用教程 </span> </a> </li> <li class="md-nav__item"> <a class="md-nav__link" href="../../clash/mihomo-windows/"> <span class="md-ellipsis"> Windows 平台 mihomo 安装与使用教程 </span> </a> </li> <li class="md-nav__item"> <a class="md-nav__link" href="../../clash/mihomo-linux/"> <span class="md-ellipsis"> Linux 平台 mihomo 安装与使用教程 </span> </a> </li> <li class="md-nav__item"> <a class="md-nav__link" href="../../clash/clash-verge-on-linux/"> <span class="md-ellipsis"> Clash Verge Rev 安装与使用教程 </span> </a> </li> <li class="md-nav__item"> <a class="md-nav__link" href="../../clash/clash-for-windows-install/"> <span class="md-ellipsis"> Windows 平台 Clash for Windows 安装与使用教程 </span> </a> </li> <li class="md-nav__item"> <a class="md-nav__link" href="../../clash/clash-for-Android-install/"> <span class="md-ellipsis"> Clash for Android 安装与使用教程 </span> </a> </li> <li class="md-nav__item"> <a class="md-nav__link" href="../../clash/clash-x-install-and-config/"> <span class="md-ellipsis"> Clash X 安装与使用教程 </span> </a> </li> </ul> </nav> </li> <li class="md-nav__item md-nav__item--nested"> <input class="md-nav__toggle md-toggle" id="__nav_4" type="checkbox"/> <label class="md-nav__link" for="__nav_4" id="__nav_4_label" tabindex="0"> <span class="md-ellipsis"> Stash </span> <span class="md-nav__icon md-icon"></span> </label> <nav aria-expanded="false" aria-labelledby="__nav_4_label" class="md-nav" data-md-level="1"> <label class="md-nav__title" for="__nav_4"> <span class="md-nav__icon md-icon"></span> Stash </label> <ul class="md-nav__list" data-md-scrollfix=""> <li class="md-nav__item"> <a class="md-nav__link" href="../../stash/stash-install/"> <span class="md-ellipsis"> iOS 平台 Stash 安装与配置教程 </span> </a> </li> <li class="md-nav__item"> <a class="md-nav__link" href="../../stash/install-stash-on-tvOS/"> <span class="md-ellipsis"> AppleTV 平台 Stash 安装与配置教程 </span> </a> </li> </ul> </nav> </li> <li class="md-nav__item md-nav__item--nested"> <input class="md-nav__toggle md-toggle" id="__nav_5" type="checkbox"/> <label class="md-nav__link" for="__nav_5" id="__nav_5_label" tabindex="0"> <span class="md-ellipsis"> Shadowsocks </span> <span class="md-nav__icon md-icon"></span> </label> <nav aria-expanded="false" aria-labelledby="__nav_5_label" class="md-nav" data-md-level="1"> <label class="md-nav__title" for="__nav_5"> <span class="md-nav__icon md-icon"></span> Shadowsocks </label> <ul class="md-nav__list" data-md-scrollfix=""> <li class="md-nav__item"> <a class="md-nav__link" href="../../ss/Shadowrocket-install/"> <span class="md-ellipsis"> iOS 平台 Shadowrocket 安装与配置教程 </span> </a> </li> </ul> </nav> </li> <li class="md-nav__item md-nav__item--nested"> <input class="md-nav__toggle md-toggle" id="__nav_6" type="checkbox"/> <label class="md-nav__link" for="__nav_6" id="__nav_6_label" tabindex="0"> <span class="md-ellipsis"> Sing-box </span> <span class="md-nav__icon md-icon"></span> </label> <nav aria-expanded="false" aria-labelledby="__nav_6_label" class="md-nav" data-md-level="1"> <label class="md-nav__title" for="__nav_6"> <span class="md-nav__icon md-icon"></span> Sing-box </label> <ul class="md-nav__list" data-md-scrollfix=""> <li class="md-nav__item"> <a class="md-nav__link" href="../../sing-box/sing-box-install/"> <span class="md-ellipsis"> Linux 平台 sing-box 安装与配置教程 </span> </a> </li> </ul> </nav> </li> <li class="md-nav__item md-nav__item--nested"> <input class="md-nav__toggle md-toggle" id="__nav_7" type="checkbox"/> <label class="md-nav__link" for="__nav_7" id="__nav_7_label" tabindex="0"> <span class="md-ellipsis"> V2ray </span> <span class="md-nav__icon md-icon"></span> </label> <nav aria-expanded="false" aria-labelledby="__nav_7_label" class="md-nav" data-md-level="1"> <label class="md-nav__title" for="__nav_7"> <span class="md-nav__icon md-icon"></span> V2ray </label> <ul class="md-nav__list" data-md-scrollfix=""> <li class="md-nav__item"> <a class="md-nav__link" href="../v2rayN-install/"> <span class="md-ellipsis"> Windows 平台 v2rayN 安装与配置教程 </span> </a> </li> <li class="md-nav__item"> <a class="md-nav__link" href="../v2rayA-install/"> <span class="md-ellipsis"> Windows 平台 v2rayA 安装与配置教程 </span> </a> </li> <li class="md-nav__item"> <a class="md-nav__link" href="../v2raya-openwrt/"> <span class="md-ellipsis"> OpenWrt 安装 v2rayA 和 v2ray 内核 </span> </a> </li> <li class="md-nav__item"> <a class="md-nav__link" href="../v2raya-docker/"> <span class="md-ellipsis"> Docker 安装 v2rayA </span> </a> </li> <li class="md-nav__item"> <a class="md-nav__link" href="../v2raya-podman/"> <span class="md-ellipsis"> 使用 Podman 运行 v2rayA </span> </a> </li> <li class="md-nav__item"> <a class="md-nav__link" href="../../misc/fqByLan/"> <span class="md-ellipsis"> Iphone/iPad通过电脑局域网共享翻墙 </span> </a> </li> </ul> </nav> </li> <li class="md-nav__item md-nav__item--nested"> <input class="md-nav__toggle md-toggle" id="__nav_8" type="checkbox"/> <label class="md-nav__link" for="__nav_8" id="__nav_8_label" tabindex="0"> <span class="md-ellipsis"> 游戏翻墙教程 </span> <span class="md-nav__icon md-icon"></span> </label> <nav aria-expanded="false" aria-labelledby="__nav_8_label" class="md-nav" data-md-level="1"> <label class="md-nav__title" for="__nav_8"> <span class="md-nav__icon md-icon"></span> 游戏翻墙教程 </label> <ul class="md-nav__list" data-md-scrollfix=""> <li class="md-nav__item"> <a class="md-nav__link" href="../../game/SSTap-install/"> <span class="md-ellipsis"> Windows 平台上 SSTap 安装与使用教程 </span> </a> </li> <li class="md-nav__item"> <a class="md-nav__link" href="../../game/Netch-install/"> <span class="md-ellipsis"> Windows 平台上 Netch 安装与使用教程 </span> </a> </li> </ul> </nav> </li> <li class="md-nav__item md-nav__item--nested"> <input class="md-nav__toggle md-toggle" id="__nav_9" type="checkbox"/> <label class="md-nav__link" for="__nav_9" id="__nav_9_label" tabindex="0"> <span class="md-ellipsis"> 机场推荐 </span> <span class="md-nav__icon md-icon"></span> </label> <nav aria-expanded="false" aria-labelledby="__nav_9_label" class="md-nav" data-md-level="1"> <label class="md-nav__title" for="__nav_9"> <span class="md-nav__icon md-icon"></span> 机场推荐 </label> <ul class="md-nav__list" data-md-scrollfix=""> <li class="md-nav__item"> <a class="md-nav__link" href="../../recommen/v2ray_node_recommendations/"> <span class="md-ellipsis"> 2025 性价比机场推荐 </span> </a> </li> <li class="md-nav__item"> <a class="md-nav__link" href="../../recommen/stable-vpn-recommendations/"> <span class="md-ellipsis"> 2025年稳定翻墙机场推荐 </span> </a> </li> <li class="md-nav__item"> <a class="md-nav__link" href="../../recommen/hysteria2_node_providers/"> <span class="md-ellipsis"> 支持 Hysteria 2 协议的机场推荐 </span> </a> </li> </ul> </nav> </li> <li class="md-nav__item md-nav__item--nested"> <input class="md-nav__toggle md-toggle" id="__nav_10" type="checkbox"/> <label class="md-nav__link" for="__nav_10" id="__nav_10_label" tabindex="0"> <span class="md-ellipsis"> 其他 </span> <span class="md-nav__icon md-icon"></span> </label> <nav aria-expanded="false" aria-labelledby="__nav_10_label" class="md-nav" data-md-level="1"> <label class="md-nav__title" for="__nav_10"> <span class="md-nav__icon md-icon"></span> 其他 </label> <ul class="md-nav__list" data-md-scrollfix=""> <li class="md-nav__item"> <a class="md-nav__link" href="../../misc/apple-id/"> <span class="md-ellipsis"> 如何注册美区苹果账号? </span> </a> </li> </ul> </nav> </li> </ul> </nav> </div> </div> </div> <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc"> <div class="md-sidebar__scrollwrap"> <div class="md-sidebar__inner"> <nav aria-label="目录" class="md-nav md-nav--secondary"> <label class="md-nav__title" for="__toc"> <span class="md-nav__icon md-icon"></span> 目录 </label> <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix=""> <li class="md-nav__item"> <a class="md-nav__link" href="#1-v2ray"> <span class="md-ellipsis"> 1. 安装 V2Ray 内核 </span> </a> <nav aria-label="1. 安装 V2Ray 内核" class="md-nav"> <ul class="md-nav__list"> <li class="md-nav__item"> <a class="md-nav__link" href="#11-1"> <span class="md-ellipsis"> 1.1. 方法 1：从软件包管理器安装 </span> </a> </li> <li class="md-nav__item"> <a class="md-nav__link" href="#12-2v2ray-xray"> <span class="md-ellipsis"> 1.2. 方法 2：V2Ray / Xray 的官方脚本 </span> </a> </li> </ul> </nav> </li> <li class="md-nav__item"> <a class="md-nav__link" href="#2-v2raya"> <span class="md-ellipsis"> 2. 安装 v2rayA </span> </a> <nav aria-label="2. 安装 v2rayA" class="md-nav"> <ul class="md-nav__list"> <li class="md-nav__item"> <a class="md-nav__link" href="#21"> <span class="md-ellipsis"> 2.1. 下载二进制可执行文件 </span> </a> </li> <li class="md-nav__item"> <a class="md-nav__link" href="#22"> <span class="md-ellipsis"> 2.2. 创建服务文件 </span> </a> </li> <li class="md-nav__item"> <a class="md-nav__link" href="#23-iptables"> <span class="md-ellipsis"> 2.3. 安装 iptables 模块 </span> </a> </li> <li class="md-nav__item"> <a class="md-nav__link" href="#24-v2raya"> <span class="md-ellipsis"> 2.4. 运行 v2rayA 并开机启动（可选） </span> </a> </li> <li class="md-nav__item"> <a class="md-nav__link" href="#25"> <span class="md-ellipsis"> 2.5. 查看日志 </span> </a> </li> <li class="md-nav__item"> <a class="md-nav__link" href="#26"> <span class="md-ellipsis"> 2.6. 其它操作 </span> </a> <nav aria-label="2.6. 其它操作" class="md-nav"> <ul class="md-nav__list"> <li class="md-nav__item"> <a class="md-nav__link" href="#261-webdir"> <span class="md-ellipsis"> 2.6.1. 指定 WebDir </span> </a> </li> <li class="md-nav__item"> <a class="md-nav__link" href="#262"> <span class="md-ellipsis"> 2.6.2. 指定内核 </span> </a> </li> </ul> </nav> </li> </ul> </nav> </li> <li class="md-nav__item"> <a class="md-nav__link" href="#3-v2raya"> <span class="md-ellipsis"> 3. v2rayA 使用方法 </span> </a> </li> </ul> </nav> </div> </div> </div> <div class="md-content" data-md-component="content"> <article class="md-content__inner md-typeset"> <h1>Alpine 上安装 v2rayA 教程</h1> <p>本文主要讲述如何在如何在Alpine 上安装 v2rayA。</p> <!-- more --> <p>v2rayA 的功能依赖于 V2Ray 内核，因此需要安装内核。</p> <h2 id="1-v2ray">1. <strong>安装 V2Ray 内核</strong><a class="headerlink" href="#1-v2ray" title="Permanent link">¶</a></h2> <p>如果你已经安装了内核，可以跳过此节。</p> <h3 id="11-1">1.1. <strong>方法 1：从软件包管理器安装</strong><a class="headerlink" href="#11-1" title="Permanent link">¶</a></h3> <p>从 Alpine Linux 3.15 开始，V2Ray 已经进入了 Community 源。编辑 apk 的配置以启用 Community 源：</p> <div class="language-text highlight"><pre><span></span><code><span id="__span-0-1"><a href="#__codelineno-0-1" id="__codelineno-0-1" name="__codelineno-0-1"></a>vi /etc/apk/repositories
+</span></code></pre></div> <div class="language-text highlight"><pre><span></span><code><span id="__span-1-1"><a href="#__codelineno-1-1" id="__codelineno-1-1" name="__codelineno-1-1"></a>http://dl-cdn.alpinelinux.org/alpine/v3.15/main
+</span><span id="__span-1-2"><a href="#__codelineno-1-2" id="__codelineno-1-2" name="__codelineno-1-2"></a>http://dl-cdn.alpinelinux.org/alpine/v3.15/community
+</span></code></pre></div> <p>然后安装 V2Ray：</p> <div class="language-text highlight"><pre><span></span><code><span id="__span-2-1"><a href="#__codelineno-2-1" id="__codelineno-2-1" name="__codelineno-2-1"></a>apk update &amp;&amp; apk add v2ray
+</span></code></pre></div> <h3 id="12-2v2ray-xray">1.2. <strong>方法 2：V2Ray / Xray 的官方脚本</strong><a class="headerlink" href="#12-2v2ray-xray" title="Permanent link">¶</a></h3> <p>V2Ray 安装参考：<a href="https://github.com/v2fly/alpinelinux-install-v2ray">https://github.com/v2fly/alpinelinux-install-v2ray</a></p> <p>Xray 安装参考：<a href="https://github.com/XTLS/alpinelinux-install-xray">https://github.com/XTLS/alpinelinux-install-xray</a></p> <h2 id="2-v2raya">2. <strong>安装 v2rayA</strong><a class="headerlink" href="#2-v2raya" title="Permanent link">¶</a></h2> <h3 id="21">2.1. <strong>下载二进制可执行文件</strong><a class="headerlink" href="#21" title="Permanent link">¶</a></h3> <p>根据你的平台，从 <a href="https://github.com/v2rayA/v2rayA/releases">Release</a> 获取具有 <code>v2raya_linux_xxx</code> 字样的无后缀名文件，并将其重命名为 <code>v2raya</code>，再把 <code>v2raya</code> 移动到 <code>/usr/local/bin</code> 并给予可执行权限。</p> <p>示例：</p> <div class="language-text highlight"><pre><span></span><code><span id="__span-3-1"><a href="#__codelineno-3-1" id="__codelineno-3-1" name="__codelineno-3-1"></a>version=$(curl -s https://apt.v2raya.org/dists/v2raya/main/binary-amd64/Packages|grep Version|cut -d' ' -f2)
+</span><span id="__span-3-2"><a href="#__codelineno-3-2" id="__codelineno-3-2" name="__codelineno-3-2"></a>curl -L https://github.com/v2rayA/v2rayA/releases/download/v$version/v2raya_linux_x64_$version --output v2raya
+</span><span id="__span-3-3"><a href="#__codelineno-3-3" id="__codelineno-3-3" name="__codelineno-3-3"></a>mv ./v2raya /usr/local/bin/ &amp;&amp; chmod +x /usr/local/bin/v2raya
+</span></code></pre></div> <p>可以使用 <code>arch</code> 命令来查询你的平台架构，比如 x86_64 的架构就需要下载 x64 的版本。</p> <h3 id="22">2.2. <strong>创建服务文件</strong><a class="headerlink" href="#22" title="Permanent link">¶</a></h3> <p>在 <code>/etc/init.d/</code> 目录下面新建一个名为 <code>v2raya</code> 的文本文件，然后编辑，添加内容如下：</p> <div class="language-text highlight"><pre><span></span><code><span id="__span-4-1"><a href="#__codelineno-4-1" id="__codelineno-4-1" name="__codelineno-4-1"></a>#!/sbin/openrc-run
+</span><span id="__span-4-2"><a href="#__codelineno-4-2" id="__codelineno-4-2" name="__codelineno-4-2"></a>
+</span><span id="__span-4-3"><a href="#__codelineno-4-3" id="__codelineno-4-3" name="__codelineno-4-3"></a>name="v2rayA"
+</span><span id="__span-4-4"><a href="#__codelineno-4-4" id="__codelineno-4-4" name="__codelineno-4-4"></a>description="A web GUI client of Project V which supports VMess, VLESS, SS, SSR, Trojan, Tuic and Juicity protocols"
+</span><span id="__span-4-5"><a href="#__codelineno-4-5" id="__codelineno-4-5" name="__codelineno-4-5"></a>command="/usr/local/bin/v2raya"
+</span><span id="__span-4-6"><a href="#__codelineno-4-6" id="__codelineno-4-6" name="__codelineno-4-6"></a>error_log="/var/log/v2raya/error.log"
+</span><span id="__span-4-7"><a href="#__codelineno-4-7" id="__codelineno-4-7" name="__codelineno-4-7"></a>pidfile="/run/${RC_SVCNAME}.pid"
+</span><span id="__span-4-8"><a href="#__codelineno-4-8" id="__codelineno-4-8" name="__codelineno-4-8"></a>command_background="yes"
+</span><span id="__span-4-9"><a href="#__codelineno-4-9" id="__codelineno-4-9" name="__codelineno-4-9"></a>rc_ulimit="-n 30000"
+</span><span id="__span-4-10"><a href="#__codelineno-4-10" id="__codelineno-4-10" name="__codelineno-4-10"></a>rc_cgroup_cleanup="yes"
+</span><span id="__span-4-11"><a href="#__codelineno-4-11" id="__codelineno-4-11" name="__codelineno-4-11"></a>
+</span><span id="__span-4-12"><a href="#__codelineno-4-12" id="__codelineno-4-12" name="__codelineno-4-12"></a>depend() {
+</span><span id="__span-4-13"><a href="#__codelineno-4-13" id="__codelineno-4-13" name="__codelineno-4-13"></a>    need net
+</span><span id="__span-4-14"><a href="#__codelineno-4-14" id="__codelineno-4-14" name="__codelineno-4-14"></a>    after net
+</span><span id="__span-4-15"><a href="#__codelineno-4-15" id="__codelineno-4-15" name="__codelineno-4-15"></a>}
+</span><span id="__span-4-16"><a href="#__codelineno-4-16" id="__codelineno-4-16" name="__codelineno-4-16"></a>
+</span><span id="__span-4-17"><a href="#__codelineno-4-17" id="__codelineno-4-17" name="__codelineno-4-17"></a>start_pre() {
+</span><span id="__span-4-18"><a href="#__codelineno-4-18" id="__codelineno-4-18" name="__codelineno-4-18"></a>   export V2RAYA_CONFIG="/usr/local/etc/v2raya"
+</span><span id="__span-4-19"><a href="#__codelineno-4-19" id="__codelineno-4-19" name="__codelineno-4-19"></a>   export V2RAYA_LOG_FILE="/tmp/v2raya/access.log"
+</span><span id="__span-4-20"><a href="#__codelineno-4-20" id="__codelineno-4-20" name="__codelineno-4-20"></a>   if [ ! -d "/tmp/v2raya/" ]; then
+</span><span id="__span-4-21"><a href="#__codelineno-4-21" id="__codelineno-4-21" name="__codelineno-4-21"></a>     mkdir "/tmp/v2raya"
+</span><span id="__span-4-22"><a href="#__codelineno-4-22" id="__codelineno-4-22" name="__codelineno-4-22"></a>   fi
+</span><span id="__span-4-23"><a href="#__codelineno-4-23" id="__codelineno-4-23" name="__codelineno-4-23"></a>   if [ ! -d "/var/log/v2raya/" ]; then
+</span><span id="__span-4-24"><a href="#__codelineno-4-24" id="__codelineno-4-24" name="__codelineno-4-24"></a>   ln -s "/tmp/v2raya/" "/var/log/"
+</span><span id="__span-4-25"><a href="#__codelineno-4-25" id="__codelineno-4-25" name="__codelineno-4-25"></a>   fi
+</span><span id="__span-4-26"><a href="#__codelineno-4-26" id="__codelineno-4-26" name="__codelineno-4-26"></a>}
+</span></code></pre></div> <p>保存文件，然后给予此文件可执行权限。</p> <h3 id="23-iptables">2.3. <strong>安装 iptables 模块</strong><a class="headerlink" href="#23-iptables" title="Permanent link">¶</a></h3> <div class="language-text highlight"><pre><span></span><code><span id="__span-5-1"><a href="#__codelineno-5-1" id="__codelineno-5-1" name="__codelineno-5-1"></a>apk add iptables ip6tables
+</span></code></pre></div> <h3 id="24-v2raya">2.4. <strong>运行 v2rayA 并开机启动（可选）</strong><a class="headerlink" href="#24-v2raya" title="Permanent link">¶</a></h3> <div class="language-text highlight"><pre><span></span><code><span id="__span-6-1"><a href="#__codelineno-6-1" id="__codelineno-6-1" name="__codelineno-6-1"></a>rc-service v2raya start
+</span><span id="__span-6-2"><a href="#__codelineno-6-2" id="__codelineno-6-2" name="__codelineno-6-2"></a>rc-update add v2raya
+</span></code></pre></div> <h3 id="25">2.5. <strong>查看日志</strong><a class="headerlink" href="#25" title="Permanent link">¶</a></h3> <div class="language-text highlight"><pre><span></span><code><span id="__span-7-1"><a href="#__codelineno-7-1" id="__codelineno-7-1" name="__codelineno-7-1"></a>tail -f /var/log/v2raya/access.log
+</span></code></pre></div> <h3 id="26">2.6. <strong>其它操作</strong><a class="headerlink" href="#26" title="Permanent link">¶</a></h3> <h4 id="261-webdir">2.6.1. <strong>指定 WebDir</strong><a class="headerlink" href="#261-webdir" title="Permanent link">¶</a></h4> <p>在服务文件的 <code>command_args</code> 中加上一个参数 <code>--webdir</code>，然后指定到 Web 文件所在目录即可。比如：</p> <div class="language-text highlight"><pre><span></span><code><span id="__span-8-1"><a href="#__codelineno-8-1" id="__codelineno-8-1" name="__codelineno-8-1"></a>command_args=" --webdir=/usr/local/etc/v2raya/web"
+</span></code></pre></div> <h4 id="262">2.6.2. <strong>指定内核</strong><a class="headerlink" href="#262" title="Permanent link">¶</a></h4> <p>在服务文件的 <code>command_args</code> 中加上一个参数 <code>--v2ray-bin</code>，然后指定到内核所在目录即可。比如：</p> <div class="language-text highlight"><pre><span></span><code><span id="__span-9-1"><a href="#__codelineno-9-1" id="__codelineno-9-1" name="__codelineno-9-1"></a>command_args=" --v2ray-bin=/usr/local/bin/xray"
+</span></code></pre></div> <h2 id="3-v2raya">3. v2rayA 使用方法<a class="headerlink" href="#3-v2raya" title="Permanent link">¶</a></h2> <p>安装并成功启动v2rayA服务后，可以使用浏览器直接访问 <a href="http://127.0.0.1:2017">http://127.0.0.1:2017</a> v2rayA管理页面, 具体使用方法可以访问 <a href="https://proxyplazza.com/prologue/quick-start.html">v2rayA 基本使用方法</a></p> <br/><br/>
+<div class="git-info">
+<div class="dates-container">
+<span class="date-item" title="This page was first created on September 25, 2024">
+<span class="hover-item">📅</span> Created 1 year ago
+    </span>
+<span class="date-item" title="This page was last updated on August 16, 2025">
+<span class="hover-item">✏️</span> Updated 1 month ago
+    </span>
+</div>
+<div class="authors-container">
+<a class="author-link" href="https://github.com-proxyguide/proxyguide/proxyguide.github.io" title="git@ultralytics.com (1 change)">
+<img alt="git@ultralytics.com" class="hover-item" loading="lazy" src="https://avatars.githubusercontent.com/u/9919?v=4&amp;s=96"/>
+</a>
+</div></div><div class="share-buttons">
+<button class="share-button hover-item" onclick="window.open('https://twitter.com/intent/tweet?url=https://proxyguide.org/v2ray/install-v2raya-on-alpine-linux', 'TwitterShare', 'width=550,height=680,menubar=no,toolbar=no'); return false;">
+<i class="fa-brands fa-x-twitter"></i> Tweet
+    </button>
+<button class="share-button hover-item linkedin" onclick="window.open('https://www.linkedin.com/shareArticle?url=https://proxyguide.org/v2ray/install-v2raya-on-alpine-linux', 'LinkedinShare', 'width=550,height=730,menubar=no,toolbar=no'); return false;">
+<i class="fa-brands fa-linkedin-in"></i> Share
+    </button>
+</div>
+<br/>
+<h2 id="__comments">评论</h2> <!-- Insert generated snippet here --> <script async="" crossorigin="anonymous" data-category="Announcements" data-category-id="DIC_kwDOPq4ex84CvS9H" data-emit-metadata="0" data-input-position="bottom" data-lang="zh-CN" data-mapping="pathname" data-reactions-enabled="1" data-repo="proxyguide/proxyguide.github.io" data-repo-id="R_kgDOPq4exw" data-strict="0" data-theme="preferred_color_scheme" src="https://giscus.app/client.js"></script> <!-- Synchronize Giscus theme with palette --> <script>
+    var giscus = document.querySelector("script[src*=giscus]")
+
+    // Set palette on initial load
+    var palette = __md_get("__palette")
+    if (palette && typeof palette.color === "object") {
+      var theme = palette.color.scheme === "slate"
+        ? "transparent_dark"
+        : "light"
+
+      // Instruct Giscus to set theme
+      giscus.setAttribute("data-theme", theme)
+    }
+
+    // Register event handlers after documented loaded
+    document.addEventListener("DOMContentLoaded", function() {
+      var ref = document.querySelector("[data-md-component=palette]")
+      ref.addEventListener("change", function() {
+        var palette = __md_get("__palette")
+        if (palette && typeof palette.color === "object") {
+          var theme = palette.color.scheme === "slate"
+            ? "transparent_dark"
+            : "light"
+
+          // Instruct Giscus to change theme
+          var frame = document.querySelector(".giscus-frame")
+          frame.contentWindow.postMessage(
+            { giscus: { setConfig: { theme } } },
+            "https://giscus.app"
+          )
+        }
+      })
+    })
+</script> </article> </div> <script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script> </div> </main> <footer class="md-footer"> <div class="md-footer-meta md-typeset"> <div class="md-footer-meta__inner md-grid"> <div class="md-copyright"> Made with <a href="https://squidfunk.github.io/mkdocs-material/" rel="noopener" target="_blank"> Material for MkDocs </a> </div> </div> </div> </footer> </div> <div class="md-dialog" data-md-component="dialog"> <div class="md-dialog__inner md-typeset"></div> </div> <script id="__config" type="application/json">{"base": "../..", "features": ["content.code.copy"], "search": "../../assets/javascripts/workers/search.973d3a69.min.js", "tags": null, "translations": {"clipboard.copied": "\u5df2\u590d\u5236", "clipboard.copy": "\u590d\u5236", "search.result.more.one": "\u5728\u8be5\u9875\u4e0a\u8fd8\u6709 1 \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.more.other": "\u5728\u8be5\u9875\u4e0a\u8fd8\u6709 # \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.none": "\u6ca1\u6709\u627e\u5230\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.one": "\u627e\u5230 1 \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.other": "# \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.placeholder": "\u952e\u5165\u4ee5\u5f00\u59cb\u641c\u7d22", "search.result.term.missing": "\u7f3a\u5c11", "select.version": "\u9009\u62e9\u5f53\u524d\u7248\u672c"}, "version": null}</script> <script src="../../assets/javascripts/bundle.92b07e13.min.js"></script> <script id="init-glightbox">const lightbox = GLightbox({"touchNavigation": true, "loop": false, "zoomable": true, "draggable": true, "openEffect": "zoom", "closeEffect": "zoom", "slideEffect": "slide"});
+document$.subscribe(()=>{ lightbox.reload(); });
+</script></body></html>
