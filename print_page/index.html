@@ -3277,7 +3277,7 @@ document.getElementById("printpdfbtn").addEventListener('click', printPdf, false
 </span></code></pre></div>
 <p>启动成功后，控制台会输出如下信息，后面步骤会用到。</p>
 <p>并确保端口开放，以便从服务器外部访问 Hiddify 管理界面。</p>
-<div class="language-bash highlight"><pre><span></span><code><span id="__span-4-1"><a id="__codelineno-4-1" name="__codelineno-4-1" href="#hiddifyapp-cli-__codelineno-4-1"></a>pen<span class="w"> </span>http://localhost:6756/ui/?secret<span class="o">=</span>K8WS6e31eSGXssd<span class="w"> </span><span class="k">in</span><span class="w"> </span>your<span class="w"> </span>browser
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-4-1"><a id="__codelineno-4-1" name="__codelineno-4-1" href="#hiddifyapp-cli-__codelineno-4-1"></a>open<span class="w"> </span>http://localhost:6756/ui/?secret<span class="o">=</span>K8WS6e31eSGXssd<span class="w"> </span><span class="k">in</span><span class="w"> </span>your<span class="w"> </span>browser
 </span></code></pre></div>
 <h2 id="hiddifyapp-cli-3">3. 管理和控制节点<a class="headerlink" href="#hiddifyapp-cli-3" title="Permanent link">¶</a></h2>
 <p>在一台装有浏览器的机器打开上面的链接，将 localhost 替换为服务器的 ip 或域名</p>
@@ -4861,20 +4861,117 @@ GTK3（GIMP Toolkit 3） 是一个 跨平台 GUI（图形用户界面）工具�
 </span><span id="__span-1-4"><a id="__codelineno-1-4" name="__codelineno-1-4" href="#sing-box-sing-box-install-__codelineno-1-4"></a><span class="c1"># 设置为开机自启动</span>
 </span><span id="__span-1-5"><a id="__codelineno-1-5" name="__codelineno-1-5" href="#sing-box-sing-box-install-__codelineno-1-5"></a>sudo<span class="w"> </span>systemctl<span class="w"> </span><span class="nb">enable</span><span class="w"> </span>sing-box
 </span></code></pre></div>
-<h3 id="sing-box-sing-box-install-23-sing-box">2.3. 一键脚本 sing-box<a class="headerlink" href="#sing-box-sing-box-install-23-sing-box" title="Permanent link">¶</a></h3>
+<h3 id="sing-box-sing-box-install-23-linux-openwrt-sing-box">2.3. Linux 平台和 OpenWrt 上 sing-box 一键安装脚本<a class="headerlink" href="#sing-box-sing-box-install-23-linux-openwrt-sing-box" title="Permanent link">¶</a></h3>
 <p>该脚本从 GitHub 发布中下载并安装最新的软件包，适用于基于 deb 或 rpm 的 Linux 发行版、ArchLinux 和 OpenWrt。</p>
 <p>安装正式版</p>
 <div class="language-bash highlight"><pre><span></span><code><span id="__span-2-1"><a id="__codelineno-2-1" name="__codelineno-2-1" href="#sing-box-sing-box-install-__codelineno-2-1"></a>curl<span class="w"> </span>-fsSL<span class="w"> </span>https://sing-box.app/install.sh<span class="w"> </span><span class="p">|</span><span class="w"> </span>sh
 </span></code></pre></div>
-<h2 id="sing-box-sing-box-install-3-sing-box">3. 配置 sing-box<a class="headerlink" href="#sing-box-sing-box-install-3-sing-box" title="Permanent link">¶</a></h2>
-<div class="language-bash highlight"><pre><span></span><code><span id="__span-3-1"><a id="__codelineno-3-1" name="__codelineno-3-1" href="#sing-box-sing-box-install-__codelineno-3-1"></a>sudo<span class="w"> </span>mkdir<span class="w"> </span>-p<span class="w"> </span>/etc/sing-box
-</span><span id="__span-3-2"><a id="__codelineno-3-2" name="__codelineno-3-2" href="#sing-box-sing-box-install-__codelineno-3-2"></a>sudo<span class="w"> </span>nano<span class="w"> </span>/etc/sing-box/config.json
+<p>设置为开机启动</p>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-3-1"><a id="__codelineno-3-1" name="__codelineno-3-1" href="#sing-box-sing-box-install-__codelineno-3-1"></a>systemctl<span class="w"> </span>daemon-reload
+</span><span id="__span-3-2"><a id="__codelineno-3-2" name="__codelineno-3-2" href="#sing-box-sing-box-install-__codelineno-3-2"></a>systemctl<span class="w"> </span><span class="nb">enable</span><span class="w"> </span>--now<span class="w"> </span>sing-box
+</span><span id="__span-3-3"><a id="__codelineno-3-3" name="__codelineno-3-3" href="#sing-box-sing-box-install-__codelineno-3-3"></a>systemctl<span class="w"> </span>status<span class="w"> </span>sing-box
 </span></code></pre></div>
-<p>在 config.json 中写入你需要的代理配置（例如 VLESS、Shadowsocks 等）。</p>
+<h3 id="sing-box-sing-box-install-app">App 平台<a class="headerlink" href="#sing-box-sing-box-install-app" title="Permanent link">¶</a></h3>
+<p>iOS/macOS/Apple tvOS 用户可以到 <a href="https://apps.apple.com/us/app/sing-box-vt/id6673731168">app store</a> 中下载(前提是要有美区 id), 也可以使用 HomeBrew 直接安装：</p>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-4-1"><a id="__codelineno-4-1" name="__codelineno-4-1" href="#sing-box-sing-box-install-__codelineno-4-1"></a>brew<span class="w"> </span>install<span class="w"> </span>sing-box
+</span></code></pre></div>
+<p>除此之外你也可以直接到 <a href="https://github.com/SagerNet/sing-box/releases">GitHub Releases</a> 页面下载客户端或者命令行版本。</p>
+<blockquote>
+<p>获取美区 id 的三种方式
+方式一： 自行注册美区苹果账号</p>
+<ul>
+<li>参考<a href="https://github.com/hysteria350/Shadowrocket-install/blob/main/how-to-register-an-us-apple-id.md">如何注册美区苹果账号?</a></li>
+</ul>
+<p>方式二： 使用共享美区账号</p>
+<ul>
+<li><a href="https://u25xk.sha.cx/d33dc883f1ca510282122ea17107da80">点击获取美区账号密码</a></li>
+<li>复制任意一个 Apple ID 账号与密码复制并粘贴到填写框登录美区苹果账号</li>
+<li>回到登陆界面，粘贴账号和密码</li>
+</ul>
+<p>方式三：购买 Apple ID</p>
+<p>移步到 <a href="https://wandow01.pp.ua?from=4344">苹果 ID 专卖小店</a>进行购买。</p>
+</blockquote>
+<p><a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="https://proxyguide.github.io/images/ss/ap3.jpg" data-desc-position="bottom"><img alt="登陆苹果美区账号" src="https://proxyguide.github.io/images/ss/ap3.jpg"></a></p>
+<h2 id="sing-box-sing-box-install-windows">Windows 平台<a class="headerlink" href="#sing-box-sing-box-install-windows" title="Permanent link">¶</a></h2>
+<p>Windows 没有图形界面客户端，官方还正在开发中，不过可以直接使用包管理器 Sccop、winget 或者 Chocolatey 安装命令行版本：</p>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-5-1"><a id="__codelineno-5-1" name="__codelineno-5-1" href="#sing-box-sing-box-install-__codelineno-5-1"></a><span class="c1"># Sccop</span>
+</span><span id="__span-5-2"><a id="__codelineno-5-2" name="__codelineno-5-2" href="#sing-box-sing-box-install-__codelineno-5-2"></a>$<span class="w"> </span>scoop<span class="w"> </span>install<span class="w"> </span>sing-box
+</span><span id="__span-5-3"><a id="__codelineno-5-3" name="__codelineno-5-3" href="#sing-box-sing-box-install-__codelineno-5-3"></a>
+</span><span id="__span-5-4"><a id="__codelineno-5-4" name="__codelineno-5-4" href="#sing-box-sing-box-install-__codelineno-5-4"></a><span class="c1"># Chocolatey</span>
+</span><span id="__span-5-5"><a id="__codelineno-5-5" name="__codelineno-5-5" href="#sing-box-sing-box-install-__codelineno-5-5"></a>$<span class="w"> </span>choco<span class="w"> </span>install<span class="w"> </span>sing-box
+</span><span id="__span-5-6"><a id="__codelineno-5-6" name="__codelineno-5-6" href="#sing-box-sing-box-install-__codelineno-5-6"></a>
+</span><span id="__span-5-7"><a id="__codelineno-5-7" name="__codelineno-5-7" href="#sing-box-sing-box-install-__codelineno-5-7"></a><span class="c1"># winget</span>
+</span><span id="__span-5-8"><a id="__codelineno-5-8" name="__codelineno-5-8" href="#sing-box-sing-box-install-__codelineno-5-8"></a>$<span class="w"> </span>winget<span class="w"> </span>install<span class="w"> </span>sing-box
+</span></code></pre></div>
+<h2 id="sing-box-sing-box-install-_1">正确使用方式<a class="headerlink" href="#sing-box-sing-box-install-_1" title="Permanent link">¶</a></h2>
+<h3 id="sing-box-sing-box-install-sing-box-gui">方式一：在 支持 sing-box 的 GUI 客户端 里<a class="headerlink" href="#sing-box-sing-box-install-sing-box-gui" title="Permanent link">¶</a></h3>
+<p>例如：</p>
+<ul>
+<li>
+<p>sing-box GUI（新版本）</p>
+</li>
+<li>
+<p>一些 Android / iOS sing-box 客户端</p>
+</li>
+</ul>
+<p>操作：</p>
+<ul>
+<li>
+<p>打开客户端</p>
+</li>
+<li>
+<p>找 “从 URL 导入 / 导入远程配置 / 导入订阅”</p>
+</li>
+</ul>
+<h3 id="sing-box-sing-box-install-sing-box-url">方式二：直接用 sing-box 命令导入 URL<a class="headerlink" href="#sing-box-sing-box-install-sing-box-url" title="Permanent link">¶</a></h3>
+<p>把这个链接里的 url 参数拿出来</p>
+<p>for Linux</p>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-6-1"><a id="__codelineno-6-1" name="__codelineno-6-1" href="#sing-box-sing-box-install-__codelineno-6-1"></a><span class="c1"># 下载配置文件</span>
+</span><span id="__span-6-2"><a id="__codelineno-6-2" name="__codelineno-6-2" href="#sing-box-sing-box-install-__codelineno-6-2"></a>curl<span class="w"> </span>-o<span class="w"> </span>config.json<span class="w"> </span>https://my.your_airports.com/api/v1/client/subscribe?token<span class="o">=</span>xxxxxxxx?flag<span class="o">=</span>sing-box
+</span><span id="__span-6-3"><a id="__codelineno-6-3" name="__codelineno-6-3" href="#sing-box-sing-box-install-__codelineno-6-3"></a>
+</span><span id="__span-6-4"><a id="__codelineno-6-4" name="__codelineno-6-4" href="#sing-box-sing-box-install-__codelineno-6-4"></a><span class="c1"># 格式化config.json, 方便阅读。</span>
+</span><span id="__span-6-5"><a id="__codelineno-6-5" name="__codelineno-6-5" href="#sing-box-sing-box-install-__codelineno-6-5"></a>sing-box<span class="w"> </span>format<span class="w"> </span>-c<span class="w"> </span>./config.json<span class="w"> </span>&gt;<span class="w"> </span>config_readable.json
+</span><span id="__span-6-6"><a id="__codelineno-6-6" name="__codelineno-6-6" href="#sing-box-sing-box-install-__codelineno-6-6"></a>
+</span><span id="__span-6-7"><a id="__codelineno-6-7" name="__codelineno-6-7" href="#sing-box-sing-box-install-__codelineno-6-7"></a><span class="c1"># 检查config文件，看是否有任何错误</span>
+</span><span id="__span-6-8"><a id="__codelineno-6-8" name="__codelineno-6-8" href="#sing-box-sing-box-install-__codelineno-6-8"></a>sing-box<span class="w"> </span>check<span class="w"> </span>-c<span class="w"> </span>config_readable.json
+</span><span id="__span-6-9"><a id="__codelineno-6-9" name="__codelineno-6-9" href="#sing-box-sing-box-install-__codelineno-6-9"></a>
+</span><span id="__span-6-10"><a id="__codelineno-6-10" name="__codelineno-6-10" href="#sing-box-sing-box-install-__codelineno-6-10"></a><span class="c1"># 运行sing-box</span>
+</span><span id="__span-6-11"><a id="__codelineno-6-11" name="__codelineno-6-11" href="#sing-box-sing-box-install-__codelineno-6-11"></a>sing-box<span class="w"> </span>run<span class="w"> </span>-c<span class="w"> </span>config_readable.json
+</span></code></pre></div>
+<blockquote>
+<ul>
+<li>如果机场支持 sing-box 格式的配置，那么 sing-box check 这一步大概率能顺利通过</li>
+<li>如果运气好节点都处于健康，一切顺利此时就可以科学上网了</li>
+</ul>
+</blockquote>
+<h3 id="sing-box-sing-box-install-clash-api">开启 Clash API<a class="headerlink" href="#sing-box-sing-box-install-clash-api" title="Permanent link">¶</a></h3>
+<p>最后的实验性配置用来开启 Clash API。没错，sing-box 是兼容 Clash API 滴！那么我们就可以使用 Clash 的 dashboard 来管理 sing-box 了，以下以 <a href="https://github.com/MetaCubeX/metacubexd">metacubexd</a> 为例，其他如 zashboard 也是类似的配置。</p>
+<p>在 config_readable.json 的 experimental 区块添加 clash_api，内容如下：</p>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-7-1"><a id="__codelineno-7-1" name="__codelineno-7-1" href="#sing-box-sing-box-install-__codelineno-7-1"></a><span class="o">{</span>
+</span><span id="__span-7-2"><a id="__codelineno-7-2" name="__codelineno-7-2" href="#sing-box-sing-box-install-__codelineno-7-2"></a><span class="w">  </span><span class="s2">"experimental"</span>:<span class="w"> </span><span class="o">{</span>
+</span><span id="__span-7-3"><a id="__codelineno-7-3" name="__codelineno-7-3" href="#sing-box-sing-box-install-__codelineno-7-3"></a><span class="w">    </span><span class="s2">"cache_file"</span>:<span class="w"> </span><span class="o">{</span>
+</span><span id="__span-7-4"><a id="__codelineno-7-4" name="__codelineno-7-4" href="#sing-box-sing-box-install-__codelineno-7-4"></a><span class="w">      </span><span class="s2">"enabled"</span>:<span class="w"> </span><span class="nb">true</span><span class="w">  </span>//<span class="w"> </span>启用缓存文件功能。当此项设置为true时，启用<span class="w"> </span>DNS<span class="w"> </span>查询的缓存，以便加快后续相同查询的响应速度。
+</span><span id="__span-7-5"><a id="__codelineno-7-5" name="__codelineno-7-5" href="#sing-box-sing-box-install-__codelineno-7-5"></a><span class="w">    </span><span class="o">}</span>,
+</span><span id="__span-7-6"><a id="__codelineno-7-6" name="__codelineno-7-6" href="#sing-box-sing-box-install-__codelineno-7-6"></a><span class="w">    </span><span class="s2">"clash_api"</span>:<span class="w"> </span><span class="o">{</span>
+</span><span id="__span-7-7"><a id="__codelineno-7-7" name="__codelineno-7-7" href="#sing-box-sing-box-install-__codelineno-7-7"></a><span class="w">      </span><span class="s2">"external_controller"</span>:<span class="w"> </span><span class="s2">"0.0.0.0:9090"</span>,<span class="w">  </span>//<span class="w"> </span>定义<span class="w"> </span>Clash<span class="w"> </span>API<span class="w"> </span>的外部控制器地址。<span class="s2">"0.0.0.0:9090"</span><span class="w"> </span>表示在本机的9090端口上监听外部的连接请求。
+</span><span id="__span-7-8"><a id="__codelineno-7-8" name="__codelineno-7-8" href="#sing-box-sing-box-install-__codelineno-7-8"></a><span class="w">      </span><span class="s2">"external_ui"</span>:<span class="w"> </span><span class="s2">"metacubexd"</span>,<span class="w">  </span>//<span class="w"> </span>指定外部用户界面<span class="o">(</span>UI<span class="o">)</span>的名称。这里的<span class="w"> </span><span class="s2">"metacubexd"</span><span class="w"> </span>是一个自定义<span class="w"> </span>UI<span class="w"> </span>的名称。
+</span><span id="__span-7-9"><a id="__codelineno-7-9" name="__codelineno-7-9" href="#sing-box-sing-box-install-__codelineno-7-9"></a><span class="w">      </span><span class="s2">"external_ui_download_url"</span>:<span class="w"> </span><span class="s2">"https://github.com/MetaCubeX/metacubexd/archive/refs/heads/gh-pages.zip"</span>,<span class="w">  </span>//<span class="w"> </span>提供外部<span class="w"> </span>UI<span class="w"> </span>的下载<span class="w"> </span>URL。这个<span class="w"> </span>URL<span class="w"> </span>是从<span class="w"> </span>GitHub<span class="w"> </span>上下载<span class="w"> </span><span class="s2">"metacubexd"</span><span class="w"> </span>UI<span class="w"> </span>的压缩包。
+</span><span id="__span-7-10"><a id="__codelineno-7-10" name="__codelineno-7-10" href="#sing-box-sing-box-install-__codelineno-7-10"></a><span class="w">      </span><span class="s2">"external_ui_download_detour"</span>:<span class="w"> </span><span class="s2">"select"</span>,<span class="w">  </span>//<span class="w"> </span>定义下载外部<span class="w"> </span>UI<span class="w"> </span>时使用的转发策略。<span class="s2">"select"</span><span class="w"> </span>表示将通过<span class="s1">'select'</span>出口选择转发
+</span><span id="__span-7-11"><a id="__codelineno-7-11" name="__codelineno-7-11" href="#sing-box-sing-box-install-__codelineno-7-11"></a><span class="w">      </span><span class="s2">"default_mode"</span>:<span class="w"> </span><span class="s2">"rule"</span><span class="w">  </span>//<span class="w"> </span>设置<span class="w"> </span>Clash<span class="w"> </span>API<span class="w"> </span>的默认模式。<span class="s2">"rule"</span><span class="w"> </span>模式意味着流量将根据用户定义的规则进行路由。
+</span><span id="__span-7-12"><a id="__codelineno-7-12" name="__codelineno-7-12" href="#sing-box-sing-box-install-__codelineno-7-12"></a><span class="w">    </span><span class="o">}</span>
+</span><span id="__span-7-13"><a id="__codelineno-7-13" name="__codelineno-7-13" href="#sing-box-sing-box-install-__codelineno-7-13"></a><span class="w">  </span><span class="o">}</span>
+</span><span id="__span-7-14"><a id="__codelineno-7-14" name="__codelineno-7-14" href="#sing-box-sing-box-install-__codelineno-7-14"></a><span class="o">}</span>
+</span></code></pre></div>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-8-1"><a id="__codelineno-8-1" name="__codelineno-8-1" href="#sing-box-sing-box-install-__codelineno-8-1"></a><span class="c1"># 运行sing-box</span>
+</span><span id="__span-8-2"><a id="__codelineno-8-2" name="__codelineno-8-2" href="#sing-box-sing-box-install-__codelineno-8-2"></a>sing-box<span class="w"> </span>run<span class="w"> </span>-c<span class="w"> </span>config_readable.json
+</span></code></pre></div>
 <h2 id="sing-box-sing-box-install-4">4. 参考文档<a class="headerlink" href="#sing-box-sing-box-install-4" title="Permanent link">¶</a></h2>
 <ul>
+<li><a href="https://sing-box.sagernet.org/">sing-box documents</a></li>
 <li><a href="https://sing-box.sagernet.org/zh/installation/package-manager/">包管理器</a></li>
 <li><a href="https://github.com/chika0801/sing-box-examples">sing-box config examples</a></li>
+<li><a href="https://icloudnative.io/posts/sing-box-tutorial/">sing-box 基础教程：sing-box 的配置方法和使用教程</a></li>
+<li><a href="https://github.com/GUI-for-Cores/GUI.for.SingBox">GUI.for.SingBox</a></li>
 </ul></body></html></section></section>
                     <section class='print-page md-section' id='section-7' heading-number='7'>
                         <h1>V2ray<a class='headerlink' href='#section-7' title='Permanent link'></a>
