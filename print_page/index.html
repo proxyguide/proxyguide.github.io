@@ -1616,6 +1616,29 @@
 
               
             
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../diy-nodes/anytls-reality-on-sing-box/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    使用 sing-box 搭建 Anytls + Reality 节点
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
           </ul>
         </nav>
       
@@ -2193,6 +2216,15 @@
   
 </li>
         
+          <li class="md-nav__item">
+  <a href="#diy-nodes-anytls-reality-on-sing-box" class="md-nav__link">
+    <span class="md-ellipsis">
+      12.5 使用 sing-box 搭建 Anytls + Reality 节点
+    </span>
+  </a>
+  
+</li>
+        
       </ul>
     </nav>
   
@@ -2750,6 +2782,15 @@
   
 </li>
         
+          <li class="md-nav__item">
+  <a href="#diy-nodes-anytls-reality-on-sing-box" class="md-nav__link">
+    <span class="md-ellipsis">
+      12.5 使用 sing-box 搭建 Anytls + Reality 节点
+    </span>
+  </a>
+  
+</li>
+        
       </ul>
     </nav>
   
@@ -2873,6 +2914,7 @@ document.getElementById("printpdfbtn").addEventListener('click', printPdf, false
 <li><a href="#diy-nodes-hysteria2-on-sing-box">使用 sing-box 搭建 Hysteria2 节点</a></li>
 <li><a href="#diy-nodes-tuic-on-sing-box">使用 sing-box 搭建 Tuic 节点</a></li>
 <li><a href="#diy-nodes-anytls-on-sing-box">使用 sing-box 搭建 Anytls 节点</a></li>
+<li><a href="#diy-nodes-anytls-reality-on-sing-box">使用 sing-box 搭建 Anytls + Reality 节点</a></li>
 </ul>
 <h2 id="index-3">3. 其他<a class="headerlink" href="#index-3" title="Permanent link">¶</a></h2>
 <ul>
@@ -7380,9 +7422,283 @@ Jan 30 23:36:48 server-0hrxrx.novalocal sing-box[3807]: FATAL[0000] to continuin
 </span><span id="__span-9-27"><a id="__codelineno-9-27" name="__codelineno-9-27" href="#diy-nodes-anytls-on-sing-box-__codelineno-9-27"></a><span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="s">'DOMAIN-KEYWORD,-cn,DIRECT'</span>
 </span><span id="__span-9-28"><a id="__codelineno-9-28" name="__codelineno-9-28" href="#diy-nodes-anytls-on-sing-box-__codelineno-9-28"></a><span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="s">'GEOIP,CN,DIRECT'</span>
 </span><span id="__span-9-29"><a id="__codelineno-9-29" name="__codelineno-9-29" href="#diy-nodes-anytls-on-sing-box-__codelineno-9-29"></a><span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="s">'MATCH,anytls-group'</span>
+</span></code></pre></div></body></html></section><section class="print-page" id="diy-nodes-anytls-reality-on-sing-box" heading-number="12.5"><h1 id="diy-nodes-anytls-reality-on-sing-box-diy-nodes-anytls-reality-on-sing-box">使用 sing-box 搭建 Anytls + Reality 节点</h1><html><head>
+        <script type="text/javascript">
+        document.addEventListener('DOMContentLoaded', function () {
+            remove_material_navigation();remove_mkdocs_theme_navigation();
+        })
+        </script>
+        </head><body><p>sing-box 是一个开源的、跨平台的通用代理与网络转发工具，常用于科学上网、流量分流、透明代理、流媒体解锁和多协议代理服务部署。它可以看作是新一代的高性能代理核心之一，设计目标是高性能、模块化、可扩展。它可以：</p>
+<ul>
+<li>
+<p>作为代理客户端使用</p>
+</li>
+<li>
+<p>作为代理服务器部署</p>
+</li>
+<li>
+<p>做透明代理网关</p>
+</li>
+<li>
+<p>实现分流策略</p>
+</li>
+<li>
+<p>解锁流媒体</p>
+</li>
+<li>
+<p>构建家庭或服务器网络出口</p>
+</li>
+</ul>
+<p>本文主要介绍如何使用 sing-box 作为代理服务器，并部署一个 AnyTLS 节点。</p>
+<h2 id="diy-nodes-anytls-reality-on-sing-box-1">1. 准备工作<a class="headerlink" href="#diy-nodes-anytls-reality-on-sing-box-1" title="Permanent link">¶</a></h2>
+<ul>
+<li>海外 VPS 一台安装好主流的操作系统 （Almalinux 8+、Ubuntu 16+、Debian 8+）</li>
+</ul>
+<p>本教程使用的是一台<a href="https://hostvds.com/?affiliate_uuid=4dc97e32-b519-48b2-8e7e-c869cdf7948e">Hostvds VPS</a> </p>
+<ul>
+<li>配置：2 vCore 4 GB RAM ($3.99)</li>
+<li>域名： .top 域名 ($1.88)</li>
+<li>操作系统： Almalinux 9</li>
+</ul>
+<h2 id="diy-nodes-anytls-reality-on-sing-box-2-sing-box">2. 安装 sing-box<a class="headerlink" href="#diy-nodes-anytls-reality-on-sing-box-2-sing-box" title="Permanent link">¶</a></h2>
+<p>这里以 Redhat 系列发行版为例，更多平台安装方式，请参考 sing-box 官方文档，或之前讲 sing-box 作为代理客户端教程中 sing-box 安装部分。</p>
+<p>对于 Redhat 系列发行版（Centos, Fedora, AlmaLinux, Rocky Linux 等）</p>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#diy-nodes-anytls-reality-on-sing-box-__codelineno-0-1"></a><span class="c1"># 向 DNF 添加 sing-box 官方软件仓库</span>
+</span><span id="__span-0-2"><a id="__codelineno-0-2" name="__codelineno-0-2" href="#diy-nodes-anytls-reality-on-sing-box-__codelineno-0-2"></a><span class="c1"># 这样系统就可以从该仓库获取 sing-box 软件包</span>
+</span><span id="__span-0-3"><a id="__codelineno-0-3" name="__codelineno-0-3" href="#diy-nodes-anytls-reality-on-sing-box-__codelineno-0-3"></a>sudo<span class="w"> </span>dnf<span class="w"> </span>config-manager<span class="w"> </span>addrepo<span class="w"> </span>--add-repo<span class="o">=</span>https://sing-box.app/sing-box.repo
+</span><span id="__span-0-4"><a id="__codelineno-0-4" name="__codelineno-0-4" href="#diy-nodes-anytls-reality-on-sing-box-__codelineno-0-4"></a>
+</span><span id="__span-0-5"><a id="__codelineno-0-5" name="__codelineno-0-5" href="#diy-nodes-anytls-reality-on-sing-box-__codelineno-0-5"></a><span class="c1"># 从指定网址下载并导入 sing-box 官方的 GPG 公钥</span>
+</span><span id="__span-0-6"><a id="__codelineno-0-6" name="__codelineno-0-6" href="#diy-nodes-anytls-reality-on-sing-box-__codelineno-0-6"></a><span class="c1"># 用于验证软件包签名，防止安装被篡改的软件</span>
+</span><span id="__span-0-7"><a id="__codelineno-0-7" name="__codelineno-0-7" href="#diy-nodes-anytls-reality-on-sing-box-__codelineno-0-7"></a>sudo<span class="w"> </span>rpm<span class="w"> </span>--import<span class="w"> </span>https://sing-box.app/gpg.key
+</span><span id="__span-0-8"><a id="__codelineno-0-8" name="__codelineno-0-8" href="#diy-nodes-anytls-reality-on-sing-box-__codelineno-0-8"></a>
+</span><span id="__span-0-9"><a id="__codelineno-0-9" name="__codelineno-0-9" href="#diy-nodes-anytls-reality-on-sing-box-__codelineno-0-9"></a><span class="c1"># 清除 DNF 的所有缓存数据（软件包缓存、仓库元数据等）</span>
+</span><span id="__span-0-10"><a id="__codelineno-0-10" name="__codelineno-0-10" href="#diy-nodes-anytls-reality-on-sing-box-__codelineno-0-10"></a><span class="c1"># 常用于仓库更新异常或软件列表不同步时强制重新下载缓存</span>
+</span><span id="__span-0-11"><a id="__codelineno-0-11" name="__codelineno-0-11" href="#diy-nodes-anytls-reality-on-sing-box-__codelineno-0-11"></a>sudo<span class="w"> </span>dnf<span class="w"> </span>clean<span class="w"> </span>all
+</span><span id="__span-0-12"><a id="__codelineno-0-12" name="__codelineno-0-12" href="#diy-nodes-anytls-reality-on-sing-box-__codelineno-0-12"></a>
+</span><span id="__span-0-13"><a id="__codelineno-0-13" name="__codelineno-0-13" href="#diy-nodes-anytls-reality-on-sing-box-__codelineno-0-13"></a><span class="c1"># 更新本地软件仓库缓存</span>
+</span><span id="__span-0-14"><a id="__codelineno-0-14" name="__codelineno-0-14" href="#diy-nodes-anytls-reality-on-sing-box-__codelineno-0-14"></a><span class="c1"># 让系统读取刚添加的仓库中的软件列表</span>
+</span><span id="__span-0-15"><a id="__codelineno-0-15" name="__codelineno-0-15" href="#diy-nodes-anytls-reality-on-sing-box-__codelineno-0-15"></a>sudo<span class="w"> </span>dnf<span class="w"> </span>makecache
+</span><span id="__span-0-16"><a id="__codelineno-0-16" name="__codelineno-0-16" href="#diy-nodes-anytls-reality-on-sing-box-__codelineno-0-16"></a>
+</span><span id="__span-0-17"><a id="__codelineno-0-17" name="__codelineno-0-17" href="#diy-nodes-anytls-reality-on-sing-box-__codelineno-0-17"></a><span class="c1"># 安装 sing-box</span>
+</span><span id="__span-0-18"><a id="__codelineno-0-18" name="__codelineno-0-18" href="#diy-nodes-anytls-reality-on-sing-box-__codelineno-0-18"></a><span class="c1"># -y 表示自动确认安装过程中的提示</span>
+</span><span id="__span-0-19"><a id="__codelineno-0-19" name="__codelineno-0-19" href="#diy-nodes-anytls-reality-on-sing-box-__codelineno-0-19"></a>sudo<span class="w"> </span>dnf<span class="w"> </span>install<span class="w"> </span>-y<span class="w"> </span>sing-box
+</span><span id="__span-0-20"><a id="__codelineno-0-20" name="__codelineno-0-20" href="#diy-nodes-anytls-reality-on-sing-box-__codelineno-0-20"></a>
+</span><span id="__span-0-21"><a id="__codelineno-0-21" name="__codelineno-0-21" href="#diy-nodes-anytls-reality-on-sing-box-__codelineno-0-21"></a>
+</span><span id="__span-0-22"><a id="__codelineno-0-22" name="__codelineno-0-22" href="#diy-nodes-anytls-reality-on-sing-box-__codelineno-0-22"></a><span class="c1"># 确认版本, 确保有 with_quic</span>
+</span><span id="__span-0-23"><a id="__codelineno-0-23" name="__codelineno-0-23" href="#diy-nodes-anytls-reality-on-sing-box-__codelineno-0-23"></a>sing-box<span class="w"> </span>version
+</span><span id="__span-0-24"><a id="__codelineno-0-24" name="__codelineno-0-24" href="#diy-nodes-anytls-reality-on-sing-box-__codelineno-0-24"></a>
+</span><span id="__span-0-25"><a id="__codelineno-0-25" name="__codelineno-0-25" href="#diy-nodes-anytls-reality-on-sing-box-__codelineno-0-25"></a><span class="c1"># 设置为开机自启动</span>
+</span><span id="__span-0-26"><a id="__codelineno-0-26" name="__codelineno-0-26" href="#diy-nodes-anytls-reality-on-sing-box-__codelineno-0-26"></a>sudo<span class="w"> </span>systemctl<span class="w"> </span><span class="nb">enable</span><span class="w"> </span>--now<span class="w"> </span>sing-box.service
+</span><span id="__span-0-27"><a id="__codelineno-0-27" name="__codelineno-0-27" href="#diy-nodes-anytls-reality-on-sing-box-__codelineno-0-27"></a>
+</span><span id="__span-0-28"><a id="__codelineno-0-28" name="__codelineno-0-28" href="#diy-nodes-anytls-reality-on-sing-box-__codelineno-0-28"></a><span class="c1"># 查看服务状态</span>
+</span><span id="__span-0-29"><a id="__codelineno-0-29" name="__codelineno-0-29" href="#diy-nodes-anytls-reality-on-sing-box-__codelineno-0-29"></a>systemctl<span class="w"> </span>status<span class="w"> </span>sing-box.service
+</span><span id="__span-0-30"><a id="__codelineno-0-30" name="__codelineno-0-30" href="#diy-nodes-anytls-reality-on-sing-box-__codelineno-0-30"></a>
+</span><span id="__span-0-31"><a id="__codelineno-0-31" name="__codelineno-0-31" href="#diy-nodes-anytls-reality-on-sing-box-__codelineno-0-31"></a><span class="c1"># 如果启动过程中出现任何错误，查看日志并进行修复</span>
+</span><span id="__span-0-32"><a id="__codelineno-0-32" name="__codelineno-0-32" href="#diy-nodes-anytls-reality-on-sing-box-__codelineno-0-32"></a>journalctl<span class="w"> </span>-u<span class="w"> </span>sing-box
 </span></code></pre></div>
-<h2 id="diy-nodes-anytls-on-sing-box-_1">参考资料<a class="headerlink" href="#diy-nodes-anytls-on-sing-box-_1" title="Permanent link">¶</a></h2>
-<p><a href="https://www.youtube.com/watch?v=AmA37gOaqOs">AnyTLS+Reality+SingBox节点搭建教程</a></p></body></html></section></section></div><style>.print-site-enumerate-headings #index > h1:before { content: '1 ' }
+<blockquote>
+<p>如何出现以下错误，需要在sing-box.service service区块添加 Environment="ENABLE_DEPRECATED_SPECIAL_OUTBOUNDS=true" 或者将 配置文件中 /etc/sing-box/config.json
+中 outbounds 中dns-out部分删除</p>
+<p>```json
+{
+ "type": "dns",
+ "tag": "dns-out"
+}</p>
+<p>```</p>
+<p>Jan 30 23:36:48 server-0hrxrx.novalocal sing-box[3807]: ERROR[0000] legacy special outbounds is deprecated in sing-box 1.11.0 and will be removed in sing-box 1.
+Jan 30 23:36:48 server-0hrxrx.novalocal sing-box[3807]: FATAL[0000] to continuing using this feature, set environment variable ENABLE_DEPRECATED_SPECIAL_OUTBOUNDS=true</p>
+</blockquote>
+<h2 id="diy-nodes-anytls-reality-on-sing-box-3-reality-keypair">3. 准备 reality keypair<a class="headerlink" href="#diy-nodes-anytls-reality-on-sing-box-3-reality-keypair" title="Permanent link">¶</a></h2>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-1-1"><a id="__codelineno-1-1" name="__codelineno-1-1" href="#diy-nodes-anytls-reality-on-sing-box-__codelineno-1-1"></a><span class="o">[</span>root@server<span class="o">]</span><span class="c1"># sing-box generate reality-keypair</span>
+</span><span id="__span-1-2"><a id="__codelineno-1-2" name="__codelineno-1-2" href="#diy-nodes-anytls-reality-on-sing-box-__codelineno-1-2"></a>PrivateKey:<span class="w"> </span>IP0qUZtsJ2v7QXYpZ0g8u5LgqaTPgzoR7UXwdpyatlo
+</span><span id="__span-1-3"><a id="__codelineno-1-3" name="__codelineno-1-3" href="#diy-nodes-anytls-reality-on-sing-box-__codelineno-1-3"></a>PublicKey:<span class="w"> </span>1lc1VNOi9uvUTjvhze_U_7RTf1FFuS8YhSEpwhWVqGc
+</span></code></pre></div>
+<h2 id="diy-nodes-anytls-reality-on-sing-box-4-reality">4. 获取 Reality 伪装目标网站<a class="headerlink" href="#diy-nodes-anytls-reality-on-sing-box-4-reality" title="Permanent link">¶</a></h2>
+<p>这一步很关键，如果目标网站选择不正确，会导致连接失败，在服务端会看到invalid request, 在客户端日志中会看到Reality shakehand失败。</p>
+<p>方法一： 网站直接获取 （简单，但无法指定区域距离，访问速度会有影响）</p>
+<ul>
+<li><a href="https://www.ssllabs.com/ssltest/index.html">https://www.ssllabs.com/ssltest/index.html</a></li>
+<li><a href="https://securityheaders.com/">https://securityheaders.com/</a></li>
+</ul>
+<p>方法二： FOFA手动搜索获取 （灵活，可以指定区域距离，但稍微繁琐需要一定的动手能力）</p>
+<ul>
+<li>ASN查询工具：<a href="https://tools.ipip.net/as.php">https://tools.ipip.net/as.php</a></li>
+<li>目标网站查询工具：<a href="https://fofa.info">https://fofa.info</a></li>
+</ul>
+<p>方法三：本地工具获取目 （方便，但无法指定区域距离，访问速度会有影响）</p>
+<p><a href="https://github.com/XTLS/RealiTLScanner/releases">RealiTLScanner工具地址</a></p>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-2-1"><a id="__codelineno-2-1" name="__codelineno-2-1" href="#diy-nodes-anytls-reality-on-sing-box-__codelineno-2-1"></a>wget<span class="w"> </span>-O<span class="w"> </span>/tmp/RealiTLScanner<span class="w"> </span>https://github.com/XTLS/RealiTLScanner/releases/download/v0.2.1/RealiTLScanner-linux-64
+</span><span id="__span-2-2"><a id="__codelineno-2-2" name="__codelineno-2-2" href="#diy-nodes-anytls-reality-on-sing-box-__codelineno-2-2"></a>chmod<span class="w"> </span>+x<span class="w"> </span>/tmp/RealiTLScanner
+</span><span id="__span-2-3"><a id="__codelineno-2-3" name="__codelineno-2-3" href="#diy-nodes-anytls-reality-on-sing-box-__codelineno-2-3"></a>./RealiTLScanner<span class="w"> </span>-addr<span class="w"> </span>&lt;your_server_ip&gt;
+</span></code></pre></div>
+<p><code>feasible=true</code> 基本上能拿来使用。使用前最后打开浏览器看一下，是否是正规可靠的网站。</p>
+<h2 id="diy-nodes-anytls-reality-on-sing-box-5-anytls-reality">5. 配置 AnyTLS + Reality 代理服务器<a class="headerlink" href="#diy-nodes-anytls-reality-on-sing-box-5-anytls-reality" title="Permanent link">¶</a></h2>
+<p>参考以下配置替换其中的域名、端口、uuid、密码，然后放入/etc/sing-box/config.json，一个简单的AnyTLS节点就配置完成了。</p>
+<blockquote>
+<p>sing-box提供了uuid生成工具 <code>sing-box generate uuid</code></p>
+</blockquote>
+<div class="language-json highlight"><pre><span></span><code><span id="__span-3-1"><a id="__codelineno-3-1" name="__codelineno-3-1" href="#diy-nodes-anytls-reality-on-sing-box-__codelineno-3-1"></a><span class="p">{</span>
+</span><span id="__span-3-2"><a id="__codelineno-3-2" name="__codelineno-3-2" href="#diy-nodes-anytls-reality-on-sing-box-__codelineno-3-2"></a><span class="w">  </span><span class="nt">"log"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-3-3"><a id="__codelineno-3-3" name="__codelineno-3-3" href="#diy-nodes-anytls-reality-on-sing-box-__codelineno-3-3"></a><span class="w">    </span><span class="nt">"level"</span><span class="p">:</span><span class="w"> </span><span class="s2">"info"</span>
+</span><span id="__span-3-4"><a id="__codelineno-3-4" name="__codelineno-3-4" href="#diy-nodes-anytls-reality-on-sing-box-__codelineno-3-4"></a><span class="w">  </span><span class="p">},</span>
+</span><span id="__span-3-5"><a id="__codelineno-3-5" name="__codelineno-3-5" href="#diy-nodes-anytls-reality-on-sing-box-__codelineno-3-5"></a>
+</span><span id="__span-3-6"><a id="__codelineno-3-6" name="__codelineno-3-6" href="#diy-nodes-anytls-reality-on-sing-box-__codelineno-3-6"></a><span class="w">  </span><span class="nt">"inbounds"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span>
+</span><span id="__span-3-7"><a id="__codelineno-3-7" name="__codelineno-3-7" href="#diy-nodes-anytls-reality-on-sing-box-__codelineno-3-7"></a><span class="w">    </span><span class="p">{</span>
+</span><span id="__span-3-8"><a id="__codelineno-3-8" name="__codelineno-3-8" href="#diy-nodes-anytls-reality-on-sing-box-__codelineno-3-8"></a><span class="w">        </span><span class="nt">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"anytls"</span><span class="p">,</span><span class="w"> </span><span class="c1">// 协议类型：AnyTLS，提供增强的混淆能力</span>
+</span><span id="__span-3-9"><a id="__codelineno-3-9" name="__codelineno-3-9" href="#diy-nodes-anytls-reality-on-sing-box-__codelineno-3-9"></a><span class="w">        </span><span class="nt">"tag"</span><span class="p">:</span><span class="w"> </span><span class="s2">"anytls-in"</span><span class="p">,</span>
+</span><span id="__span-3-10"><a id="__codelineno-3-10" name="__codelineno-3-10" href="#diy-nodes-anytls-reality-on-sing-box-__codelineno-3-10"></a>
+</span><span id="__span-3-11"><a id="__codelineno-3-11" name="__codelineno-3-11" href="#diy-nodes-anytls-reality-on-sing-box-__codelineno-3-11"></a><span class="w">        </span><span class="nt">"listen"</span><span class="p">:</span><span class="w"> </span><span class="s2">"::"</span><span class="p">,</span><span class="w"> </span><span class="c1">// 监听地址："::" 表示同时监听 IPv4 和 IPv6</span>
+</span><span id="__span-3-12"><a id="__codelineno-3-12" name="__codelineno-3-12" href="#diy-nodes-anytls-reality-on-sing-box-__codelineno-3-12"></a><span class="w">        </span><span class="nt">"listen_port"</span><span class="p">:</span><span class="w"> </span><span class="mi">443</span><span class="p">,</span>
+</span><span id="__span-3-13"><a id="__codelineno-3-13" name="__codelineno-3-13" href="#diy-nodes-anytls-reality-on-sing-box-__codelineno-3-13"></a>
+</span><span id="__span-3-14"><a id="__codelineno-3-14" name="__codelineno-3-14" href="#diy-nodes-anytls-reality-on-sing-box-__codelineno-3-14"></a><span class="w">        </span><span class="nt">"users"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span>
+</span><span id="__span-3-15"><a id="__codelineno-3-15" name="__codelineno-3-15" href="#diy-nodes-anytls-reality-on-sing-box-__codelineno-3-15"></a><span class="w">          </span><span class="p">{</span>
+</span><span id="__span-3-16"><a id="__codelineno-3-16" name="__codelineno-3-16" href="#diy-nodes-anytls-reality-on-sing-box-__codelineno-3-16"></a><span class="w">            </span><span class="nt">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"sekai"</span><span class="p">,</span>
+</span><span id="__span-3-17"><a id="__codelineno-3-17" name="__codelineno-3-17" href="#diy-nodes-anytls-reality-on-sing-box-__codelineno-3-17"></a><span class="w">            </span><span class="nt">"password"</span><span class="p">:</span><span class="w"> </span><span class="s2">"71a636a6-974d-4454-8653-4cc332a9cd3e"</span>
+</span><span id="__span-3-18"><a id="__codelineno-3-18" name="__codelineno-3-18" href="#diy-nodes-anytls-reality-on-sing-box-__codelineno-3-18"></a><span class="w">          </span><span class="p">}</span>
+</span><span id="__span-3-19"><a id="__codelineno-3-19" name="__codelineno-3-19" href="#diy-nodes-anytls-reality-on-sing-box-__codelineno-3-19"></a><span class="w">        </span><span class="p">],</span>
+</span><span id="__span-3-20"><a id="__codelineno-3-20" name="__codelineno-3-20" href="#diy-nodes-anytls-reality-on-sing-box-__codelineno-3-20"></a><span class="w">        </span><span class="nt">"padding_scheme"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span>
+</span><span id="__span-3-21"><a id="__codelineno-3-21" name="__codelineno-3-21" href="#diy-nodes-anytls-reality-on-sing-box-__codelineno-3-21"></a><span class="w">            </span><span class="s2">"stop=8"</span><span class="p">,</span>
+</span><span id="__span-3-22"><a id="__codelineno-3-22" name="__codelineno-3-22" href="#diy-nodes-anytls-reality-on-sing-box-__codelineno-3-22"></a><span class="w">            </span><span class="s2">"0=50-100"</span><span class="p">,</span>
+</span><span id="__span-3-23"><a id="__codelineno-3-23" name="__codelineno-3-23" href="#diy-nodes-anytls-reality-on-sing-box-__codelineno-3-23"></a><span class="w">            </span><span class="s2">"1=150-500"</span><span class="p">,</span>
+</span><span id="__span-3-24"><a id="__codelineno-3-24" name="__codelineno-3-24" href="#diy-nodes-anytls-reality-on-sing-box-__codelineno-3-24"></a><span class="w">            </span><span class="s2">"2=500-1200,c,500-1200,c,500-1200"</span><span class="p">,</span>
+</span><span id="__span-3-25"><a id="__codelineno-3-25" name="__codelineno-3-25" href="#diy-nodes-anytls-reality-on-sing-box-__codelineno-3-25"></a><span class="w">            </span><span class="s2">"3=20-100,500-1200"</span><span class="p">,</span>
+</span><span id="__span-3-26"><a id="__codelineno-3-26" name="__codelineno-3-26" href="#diy-nodes-anytls-reality-on-sing-box-__codelineno-3-26"></a><span class="w">            </span><span class="s2">"4=600-1100"</span><span class="p">,</span>
+</span><span id="__span-3-27"><a id="__codelineno-3-27" name="__codelineno-3-27" href="#diy-nodes-anytls-reality-on-sing-box-__codelineno-3-27"></a><span class="w">            </span><span class="s2">"5=400-900"</span><span class="p">,</span>
+</span><span id="__span-3-28"><a id="__codelineno-3-28" name="__codelineno-3-28" href="#diy-nodes-anytls-reality-on-sing-box-__codelineno-3-28"></a><span class="w">            </span><span class="s2">"6=700-1300"</span><span class="p">,</span>
+</span><span id="__span-3-29"><a id="__codelineno-3-29" name="__codelineno-3-29" href="#diy-nodes-anytls-reality-on-sing-box-__codelineno-3-29"></a><span class="w">            </span><span class="s2">"7=300-800"</span>
+</span><span id="__span-3-30"><a id="__codelineno-3-30" name="__codelineno-3-30" href="#diy-nodes-anytls-reality-on-sing-box-__codelineno-3-30"></a><span class="w">        </span><span class="p">],</span>
+</span><span id="__span-3-31"><a id="__codelineno-3-31" name="__codelineno-3-31" href="#diy-nodes-anytls-reality-on-sing-box-__codelineno-3-31"></a><span class="w">        </span><span class="nt">"tls"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-3-32"><a id="__codelineno-3-32" name="__codelineno-3-32" href="#diy-nodes-anytls-reality-on-sing-box-__codelineno-3-32"></a><span class="w">          </span><span class="nt">"enabled"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">          </span><span class="c1">// 启用 TLS</span>
+</span><span id="__span-3-33"><a id="__codelineno-3-33" name="__codelineno-3-33" href="#diy-nodes-anytls-reality-on-sing-box-__codelineno-3-33"></a><span class="w">          </span><span class="nt">"server_name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"www.dalkyo.xyz"</span><span class="p">,</span><span class="w"> </span><span class="c1">// 伪装域名：向外展示的域名，使用RealiTLScanner获取到的域名</span>
+</span><span id="__span-3-34"><a id="__codelineno-3-34" name="__codelineno-3-34" href="#diy-nodes-anytls-reality-on-sing-box-__codelineno-3-34"></a><span class="w">          </span><span class="nt">"reality"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-3-35"><a id="__codelineno-3-35" name="__codelineno-3-35" href="#diy-nodes-anytls-reality-on-sing-box-__codelineno-3-35"></a><span class="w">            </span><span class="nt">"enabled"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">        </span><span class="c1">// 启用 REALITY 传输</span>
+</span><span id="__span-3-36"><a id="__codelineno-3-36" name="__codelineno-3-36" href="#diy-nodes-anytls-reality-on-sing-box-__codelineno-3-36"></a><span class="w">            </span><span class="nt">"handshake"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-3-37"><a id="__codelineno-3-37" name="__codelineno-3-37" href="#diy-nodes-anytls-reality-on-sing-box-__codelineno-3-37"></a><span class="w">              </span><span class="nt">"server"</span><span class="p">:</span><span class="w"> </span><span class="s2">"www.dalkyo.xyz"</span><span class="p">,</span><span class="w"> </span><span class="c1">// 真实握手目标服务器</span>
+</span><span id="__span-3-38"><a id="__codelineno-3-38" name="__codelineno-3-38" href="#diy-nodes-anytls-reality-on-sing-box-__codelineno-3-38"></a><span class="w">              </span><span class="nt">"server_port"</span><span class="p">:</span><span class="w"> </span><span class="mi">443</span>
+</span><span id="__span-3-39"><a id="__codelineno-3-39" name="__codelineno-3-39" href="#diy-nodes-anytls-reality-on-sing-box-__codelineno-3-39"></a><span class="w">            </span><span class="p">},</span>
+</span><span id="__span-3-40"><a id="__codelineno-3-40" name="__codelineno-3-40" href="#diy-nodes-anytls-reality-on-sing-box-__codelineno-3-40"></a><span class="w">            </span><span class="c1">// 这里的 Private Key 必须由 sing-box generate reality-keypair 命令生成</span>
+</span><span id="__span-3-41"><a id="__codelineno-3-41" name="__codelineno-3-41" href="#diy-nodes-anytls-reality-on-sing-box-__codelineno-3-41"></a><span class="w">            </span><span class="nt">"private_key"</span><span class="p">:</span><span class="w"> </span><span class="s2">"IP0qUZtsJ2v7QXYpZ0g8u5LgqaTPgzoR7UXwdpyatlo"</span><span class="p">,</span>
+</span><span id="__span-3-42"><a id="__codelineno-3-42" name="__codelineno-3-42" href="#diy-nodes-anytls-reality-on-sing-box-__codelineno-3-42"></a><span class="w">            </span><span class="nt">"short_id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"a1b2c3d4e5f67890"</span><span class="w"> </span><span class="c1">// 简短 ID，用于识别合法客户端</span>
+</span><span id="__span-3-43"><a id="__codelineno-3-43" name="__codelineno-3-43" href="#diy-nodes-anytls-reality-on-sing-box-__codelineno-3-43"></a><span class="w">          </span><span class="p">}</span>
+</span><span id="__span-3-44"><a id="__codelineno-3-44" name="__codelineno-3-44" href="#diy-nodes-anytls-reality-on-sing-box-__codelineno-3-44"></a><span class="w">        </span><span class="p">}</span>
+</span><span id="__span-3-45"><a id="__codelineno-3-45" name="__codelineno-3-45" href="#diy-nodes-anytls-reality-on-sing-box-__codelineno-3-45"></a><span class="w">    </span><span class="p">}</span>
+</span><span id="__span-3-46"><a id="__codelineno-3-46" name="__codelineno-3-46" href="#diy-nodes-anytls-reality-on-sing-box-__codelineno-3-46"></a><span class="w">  </span><span class="p">],</span>
+</span><span id="__span-3-47"><a id="__codelineno-3-47" name="__codelineno-3-47" href="#diy-nodes-anytls-reality-on-sing-box-__codelineno-3-47"></a>
+</span><span id="__span-3-48"><a id="__codelineno-3-48" name="__codelineno-3-48" href="#diy-nodes-anytls-reality-on-sing-box-__codelineno-3-48"></a><span class="w">  </span><span class="nt">"outbounds"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span>
+</span><span id="__span-3-49"><a id="__codelineno-3-49" name="__codelineno-3-49" href="#diy-nodes-anytls-reality-on-sing-box-__codelineno-3-49"></a><span class="w">    </span><span class="p">{</span>
+</span><span id="__span-3-50"><a id="__codelineno-3-50" name="__codelineno-3-50" href="#diy-nodes-anytls-reality-on-sing-box-__codelineno-3-50"></a><span class="w">      </span><span class="nt">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"direct"</span>
+</span><span id="__span-3-51"><a id="__codelineno-3-51" name="__codelineno-3-51" href="#diy-nodes-anytls-reality-on-sing-box-__codelineno-3-51"></a><span class="w">    </span><span class="p">}</span>
+</span><span id="__span-3-52"><a id="__codelineno-3-52" name="__codelineno-3-52" href="#diy-nodes-anytls-reality-on-sing-box-__codelineno-3-52"></a><span class="w">  </span><span class="p">]</span>
+</span><span id="__span-3-53"><a id="__codelineno-3-53" name="__codelineno-3-53" href="#diy-nodes-anytls-reality-on-sing-box-__codelineno-3-53"></a><span class="p">}</span>
+</span></code></pre></div>
+<h2 id="diy-nodes-anytls-reality-on-sing-box-6-udp">6. 防火墙开放 UDP 端口<a class="headerlink" href="#diy-nodes-anytls-reality-on-sing-box-6-udp" title="Permanent link">¶</a></h2>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-4-1"><a id="__codelineno-4-1" name="__codelineno-4-1" href="#diy-nodes-anytls-reality-on-sing-box-__codelineno-4-1"></a>firewall-cmd<span class="w"> </span>--permanent<span class="w"> </span>--add-port<span class="o">=</span><span class="m">443</span>/tcp
+</span><span id="__span-4-2"><a id="__codelineno-4-2" name="__codelineno-4-2" href="#diy-nodes-anytls-reality-on-sing-box-__codelineno-4-2"></a>firewall-cmd<span class="w"> </span>--reload
+</span></code></pre></div>
+<h2 id="diy-nodes-anytls-reality-on-sing-box-7">7. 检测配置<a class="headerlink" href="#diy-nodes-anytls-reality-on-sing-box-7" title="Permanent link">¶</a></h2>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-5-1"><a id="__codelineno-5-1" name="__codelineno-5-1" href="#diy-nodes-anytls-reality-on-sing-box-__codelineno-5-1"></a>
+</span></code></pre></div>
+<h2 id="diy-nodes-anytls-reality-on-sing-box-8-sing-box">8. 重启 sing-box<a class="headerlink" href="#diy-nodes-anytls-reality-on-sing-box-8-sing-box" title="Permanent link">¶</a></h2>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-6-1"><a id="__codelineno-6-1" name="__codelineno-6-1" href="#diy-nodes-anytls-reality-on-sing-box-__codelineno-6-1"></a>systemctl<span class="w"> </span>restart<span class="w"> </span>sing-box
+</span></code></pre></div>
+<p>当日志中出现 <code>inbound/anytls[anytls-in]: tcp server started at [::]:443</code> 表示 sing-box AnyTLS 节点监听在 443 端口</p>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-7-1"><a id="__codelineno-7-1" name="__codelineno-7-1" href="#diy-nodes-anytls-reality-on-sing-box-__codelineno-7-1"></a>sing-box<span class="o">[</span><span class="m">12182</span><span class="o">]</span>:<span class="w"> </span>INFO<span class="o">[</span><span class="m">0000</span><span class="o">]</span><span class="w"> </span>network:<span class="w"> </span>updated<span class="w"> </span>default<span class="w"> </span>interface<span class="w"> </span>eth0,<span class="w"> </span>index<span class="w"> </span><span class="m">2</span>
+</span><span id="__span-7-2"><a id="__codelineno-7-2" name="__codelineno-7-2" href="#diy-nodes-anytls-reality-on-sing-box-__codelineno-7-2"></a>sing-box<span class="o">[</span><span class="m">12182</span><span class="o">]</span>:<span class="w"> </span>INFO<span class="o">[</span><span class="m">0000</span><span class="o">]</span><span class="w"> </span>inbound/anytls<span class="o">[</span>anytls-in<span class="o">]</span>:<span class="w"> </span>tcp<span class="w"> </span>server<span class="w"> </span>started<span class="w"> </span>at<span class="w"> </span><span class="o">[</span>::<span class="o">]</span>:443
+</span><span id="__span-7-3"><a id="__codelineno-7-3" name="__codelineno-7-3" href="#diy-nodes-anytls-reality-on-sing-box-__codelineno-7-3"></a>sing-box<span class="o">[</span><span class="m">12182</span><span class="o">]</span>:<span class="w"> </span>INFO<span class="o">[</span><span class="m">0000</span><span class="o">]</span><span class="w"> </span>sing-box<span class="w"> </span>started<span class="w"> </span><span class="o">(</span><span class="m">0</span>.11s<span class="o">)</span>
+</span></code></pre></div>
+<h2 id="diy-nodes-anytls-reality-on-sing-box-9">9. 测试<a class="headerlink" href="#diy-nodes-anytls-reality-on-sing-box-9" title="Permanent link">¶</a></h2>
+<p>目前支持Anytls + Reality的客户端并不多（截至2026二月），Mihomo内核不支持Anytls + Reality，所以clash系列客户端测试不了，目前只有Xray内核和sing-box内核（1.12+版本）支持连接Anytls + Reality节点。</p>
+<p>V2rayN 测试，将以下连接字符串中域名替换成真实域名，粘贴到 v2rayN 节点分组，然后测试节点真连接延迟：</p>
+<p>连接字符串： <code>anytls://71a636a6-974d-4454-8653-4cc332a9cd3e@your_server_ip:443?security=reality&amp;sni=www.dalkyo.xyz&amp;fp=chrome&amp;pbk=1lc1VNOi9uvUTjvhze_U_7RTf1FFuS8YhSEpwhWVqGc&amp;sid=a1b2c3d4e5f67890&amp;type=tcp#anytls_reality</code></p>
+<p>如果使用 sing-box 系列客户端，可以使用如下配置, 可以将以下配置中的 ip 替换成真实域名， 导入到客户端进行测试：</p>
+<div class="language-json highlight"><pre><span></span><code><span id="__span-8-1"><a id="__codelineno-8-1" name="__codelineno-8-1" href="#diy-nodes-anytls-reality-on-sing-box-__codelineno-8-1"></a><span class="p">{</span>
+</span><span id="__span-8-2"><a id="__codelineno-8-2" name="__codelineno-8-2" href="#diy-nodes-anytls-reality-on-sing-box-__codelineno-8-2"></a><span class="w">  </span><span class="nt">"log"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-8-3"><a id="__codelineno-8-3" name="__codelineno-8-3" href="#diy-nodes-anytls-reality-on-sing-box-__codelineno-8-3"></a><span class="w">    </span><span class="nt">"level"</span><span class="p">:</span><span class="w"> </span><span class="s2">"info"</span><span class="p">,</span>
+</span><span id="__span-8-4"><a id="__codelineno-8-4" name="__codelineno-8-4" href="#diy-nodes-anytls-reality-on-sing-box-__codelineno-8-4"></a><span class="w">    </span><span class="nt">"timestamp"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span>
+</span><span id="__span-8-5"><a id="__codelineno-8-5" name="__codelineno-8-5" href="#diy-nodes-anytls-reality-on-sing-box-__codelineno-8-5"></a><span class="w">  </span><span class="p">},</span>
+</span><span id="__span-8-6"><a id="__codelineno-8-6" name="__codelineno-8-6" href="#diy-nodes-anytls-reality-on-sing-box-__codelineno-8-6"></a><span class="w">  </span><span class="nt">"dns"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-8-7"><a id="__codelineno-8-7" name="__codelineno-8-7" href="#diy-nodes-anytls-reality-on-sing-box-__codelineno-8-7"></a><span class="w">    </span><span class="nt">"servers"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span>
+</span><span id="__span-8-8"><a id="__codelineno-8-8" name="__codelineno-8-8" href="#diy-nodes-anytls-reality-on-sing-box-__codelineno-8-8"></a><span class="w">      </span><span class="p">{</span>
+</span><span id="__span-8-9"><a id="__codelineno-8-9" name="__codelineno-8-9" href="#diy-nodes-anytls-reality-on-sing-box-__codelineno-8-9"></a><span class="w">        </span><span class="nt">"tag"</span><span class="p">:</span><span class="w"> </span><span class="s2">"google"</span><span class="p">,</span>
+</span><span id="__span-8-10"><a id="__codelineno-8-10" name="__codelineno-8-10" href="#diy-nodes-anytls-reality-on-sing-box-__codelineno-8-10"></a><span class="w">        </span><span class="nt">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"tls"</span><span class="p">,</span>
+</span><span id="__span-8-11"><a id="__codelineno-8-11" name="__codelineno-8-11" href="#diy-nodes-anytls-reality-on-sing-box-__codelineno-8-11"></a><span class="w">        </span><span class="nt">"server"</span><span class="p">:</span><span class="w"> </span><span class="s2">"8.8.8.8"</span><span class="p">,</span>
+</span><span id="__span-8-12"><a id="__codelineno-8-12" name="__codelineno-8-12" href="#diy-nodes-anytls-reality-on-sing-box-__codelineno-8-12"></a><span class="w">        </span><span class="nt">"detour"</span><span class="p">:</span><span class="w"> </span><span class="s2">"anytls-out"</span>
+</span><span id="__span-8-13"><a id="__codelineno-8-13" name="__codelineno-8-13" href="#diy-nodes-anytls-reality-on-sing-box-__codelineno-8-13"></a><span class="w">      </span><span class="p">},</span>
+</span><span id="__span-8-14"><a id="__codelineno-8-14" name="__codelineno-8-14" href="#diy-nodes-anytls-reality-on-sing-box-__codelineno-8-14"></a><span class="w">      </span><span class="p">{</span>
+</span><span id="__span-8-15"><a id="__codelineno-8-15" name="__codelineno-8-15" href="#diy-nodes-anytls-reality-on-sing-box-__codelineno-8-15"></a><span class="w">        </span><span class="nt">"tag"</span><span class="p">:</span><span class="w"> </span><span class="s2">"local"</span><span class="p">,</span>
+</span><span id="__span-8-16"><a id="__codelineno-8-16" name="__codelineno-8-16" href="#diy-nodes-anytls-reality-on-sing-box-__codelineno-8-16"></a><span class="w">        </span><span class="nt">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"udp"</span><span class="p">,</span>
+</span><span id="__span-8-17"><a id="__codelineno-8-17" name="__codelineno-8-17" href="#diy-nodes-anytls-reality-on-sing-box-__codelineno-8-17"></a><span class="w">        </span><span class="nt">"server"</span><span class="p">:</span><span class="w"> </span><span class="s2">"223.5.5.5"</span>
+</span><span id="__span-8-18"><a id="__codelineno-8-18" name="__codelineno-8-18" href="#diy-nodes-anytls-reality-on-sing-box-__codelineno-8-18"></a><span class="w">      </span><span class="p">}</span>
+</span><span id="__span-8-19"><a id="__codelineno-8-19" name="__codelineno-8-19" href="#diy-nodes-anytls-reality-on-sing-box-__codelineno-8-19"></a><span class="w">    </span><span class="p">],</span>
+</span><span id="__span-8-20"><a id="__codelineno-8-20" name="__codelineno-8-20" href="#diy-nodes-anytls-reality-on-sing-box-__codelineno-8-20"></a><span class="w">    </span><span class="nt">"strategy"</span><span class="p">:</span><span class="w"> </span><span class="s2">"ipv4_only"</span><span class="p">,</span>
+</span><span id="__span-8-21"><a id="__codelineno-8-21" name="__codelineno-8-21" href="#diy-nodes-anytls-reality-on-sing-box-__codelineno-8-21"></a><span class="w">    </span><span class="nt">"final"</span><span class="p">:</span><span class="w"> </span><span class="s2">"google"</span>
+</span><span id="__span-8-22"><a id="__codelineno-8-22" name="__codelineno-8-22" href="#diy-nodes-anytls-reality-on-sing-box-__codelineno-8-22"></a><span class="w">  </span><span class="p">},</span>
+</span><span id="__span-8-23"><a id="__codelineno-8-23" name="__codelineno-8-23" href="#diy-nodes-anytls-reality-on-sing-box-__codelineno-8-23"></a><span class="w">  </span><span class="nt">"inbounds"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span>
+</span><span id="__span-8-24"><a id="__codelineno-8-24" name="__codelineno-8-24" href="#diy-nodes-anytls-reality-on-sing-box-__codelineno-8-24"></a><span class="w">    </span><span class="p">{</span>
+</span><span id="__span-8-25"><a id="__codelineno-8-25" name="__codelineno-8-25" href="#diy-nodes-anytls-reality-on-sing-box-__codelineno-8-25"></a><span class="w">      </span><span class="nt">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"tun"</span><span class="p">,</span><span class="w">    </span><span class="c1">//开启tun模式，需要管理员权限</span>
+</span><span id="__span-8-26"><a id="__codelineno-8-26" name="__codelineno-8-26" href="#diy-nodes-anytls-reality-on-sing-box-__codelineno-8-26"></a><span class="w">      </span><span class="nt">"address"</span><span class="p">:</span><span class="w"> </span><span class="s2">"172.19.0.1/30"</span><span class="p">,</span><span class="w"> </span><span class="c1">//指定虚拟网卡ip</span>
+</span><span id="__span-8-27"><a id="__codelineno-8-27" name="__codelineno-8-27" href="#diy-nodes-anytls-reality-on-sing-box-__codelineno-8-27"></a><span class="w">      </span><span class="nt">"auto_route"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span>
+</span><span id="__span-8-28"><a id="__codelineno-8-28" name="__codelineno-8-28" href="#diy-nodes-anytls-reality-on-sing-box-__codelineno-8-28"></a><span class="w">      </span><span class="nt">"strict_route"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span>
+</span><span id="__span-8-29"><a id="__codelineno-8-29" name="__codelineno-8-29" href="#diy-nodes-anytls-reality-on-sing-box-__codelineno-8-29"></a><span class="w">      </span><span class="nt">"sniff"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span>
+</span><span id="__span-8-30"><a id="__codelineno-8-30" name="__codelineno-8-30" href="#diy-nodes-anytls-reality-on-sing-box-__codelineno-8-30"></a><span class="w">    </span><span class="p">}</span>
+</span><span id="__span-8-31"><a id="__codelineno-8-31" name="__codelineno-8-31" href="#diy-nodes-anytls-reality-on-sing-box-__codelineno-8-31"></a><span class="w">  </span><span class="p">],</span>
+</span><span id="__span-8-32"><a id="__codelineno-8-32" name="__codelineno-8-32" href="#diy-nodes-anytls-reality-on-sing-box-__codelineno-8-32"></a><span class="w">  </span><span class="nt">"outbounds"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span>
+</span><span id="__span-8-33"><a id="__codelineno-8-33" name="__codelineno-8-33" href="#diy-nodes-anytls-reality-on-sing-box-__codelineno-8-33"></a><span class="w">    </span><span class="p">{</span>
+</span><span id="__span-8-34"><a id="__codelineno-8-34" name="__codelineno-8-34" href="#diy-nodes-anytls-reality-on-sing-box-__codelineno-8-34"></a><span class="w">      </span><span class="nt">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"anytls"</span><span class="p">,</span>
+</span><span id="__span-8-35"><a id="__codelineno-8-35" name="__codelineno-8-35" href="#diy-nodes-anytls-reality-on-sing-box-__codelineno-8-35"></a><span class="w">      </span><span class="nt">"tag"</span><span class="p">:</span><span class="w"> </span><span class="s2">"anytls-out"</span><span class="p">,</span>
+</span><span id="__span-8-36"><a id="__codelineno-8-36" name="__codelineno-8-36" href="#diy-nodes-anytls-reality-on-sing-box-__codelineno-8-36"></a><span class="w">      </span><span class="nt">"server"</span><span class="p">:</span><span class="w"> </span><span class="s2">"your_server_ip"</span><span class="p">,</span>
+</span><span id="__span-8-37"><a id="__codelineno-8-37" name="__codelineno-8-37" href="#diy-nodes-anytls-reality-on-sing-box-__codelineno-8-37"></a><span class="w">      </span><span class="nt">"server_port"</span><span class="p">:</span><span class="w"> </span><span class="mi">443</span><span class="p">,</span>
+</span><span id="__span-8-38"><a id="__codelineno-8-38" name="__codelineno-8-38" href="#diy-nodes-anytls-reality-on-sing-box-__codelineno-8-38"></a><span class="w">      </span><span class="nt">"password"</span><span class="p">:</span><span class="w"> </span><span class="s2">"71a636a6-974d-4424-8653-4cc332a9cd3e"</span><span class="p">,</span>
+</span><span id="__span-8-39"><a id="__codelineno-8-39" name="__codelineno-8-39" href="#diy-nodes-anytls-reality-on-sing-box-__codelineno-8-39"></a><span class="w">      </span><span class="nt">"tls"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-8-40"><a id="__codelineno-8-40" name="__codelineno-8-40" href="#diy-nodes-anytls-reality-on-sing-box-__codelineno-8-40"></a><span class="w">        </span><span class="nt">"enabled"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span>
+</span><span id="__span-8-41"><a id="__codelineno-8-41" name="__codelineno-8-41" href="#diy-nodes-anytls-reality-on-sing-box-__codelineno-8-41"></a><span class="w">        </span><span class="nt">"server_name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"www.dalkyo.xyz"</span><span class="p">,</span><span class="w"> </span><span class="c1">//与服务端配置对应</span>
+</span><span id="__span-8-42"><a id="__codelineno-8-42" name="__codelineno-8-42" href="#diy-nodes-anytls-reality-on-sing-box-__codelineno-8-42"></a><span class="w">        </span><span class="nt">"utls"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-8-43"><a id="__codelineno-8-43" name="__codelineno-8-43" href="#diy-nodes-anytls-reality-on-sing-box-__codelineno-8-43"></a><span class="w">          </span><span class="nt">"enabled"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span>
+</span><span id="__span-8-44"><a id="__codelineno-8-44" name="__codelineno-8-44" href="#diy-nodes-anytls-reality-on-sing-box-__codelineno-8-44"></a><span class="w">          </span><span class="nt">"fingerprint"</span><span class="p">:</span><span class="w"> </span><span class="s2">"chrome"</span>
+</span><span id="__span-8-45"><a id="__codelineno-8-45" name="__codelineno-8-45" href="#diy-nodes-anytls-reality-on-sing-box-__codelineno-8-45"></a><span class="w">        </span><span class="p">},</span>
+</span><span id="__span-8-46"><a id="__codelineno-8-46" name="__codelineno-8-46" href="#diy-nodes-anytls-reality-on-sing-box-__codelineno-8-46"></a><span class="w">        </span><span class="nt">"reality"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-8-47"><a id="__codelineno-8-47" name="__codelineno-8-47" href="#diy-nodes-anytls-reality-on-sing-box-__codelineno-8-47"></a><span class="w">          </span><span class="nt">"enabled"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span>
+</span><span id="__span-8-48"><a id="__codelineno-8-48" name="__codelineno-8-48" href="#diy-nodes-anytls-reality-on-sing-box-__codelineno-8-48"></a><span class="w">          </span><span class="nt">"public_key"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1lc1VNOi9uvUTjvhze_U_7RTf1FFuS8YhSEpwhWVqGc"</span><span class="p">,</span>
+</span><span id="__span-8-49"><a id="__codelineno-8-49" name="__codelineno-8-49" href="#diy-nodes-anytls-reality-on-sing-box-__codelineno-8-49"></a><span class="w">          </span><span class="nt">"short_id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"a1b2c3d4e5f67890"</span>
+</span><span id="__span-8-50"><a id="__codelineno-8-50" name="__codelineno-8-50" href="#diy-nodes-anytls-reality-on-sing-box-__codelineno-8-50"></a><span class="w">        </span><span class="p">}</span>
+</span><span id="__span-8-51"><a id="__codelineno-8-51" name="__codelineno-8-51" href="#diy-nodes-anytls-reality-on-sing-box-__codelineno-8-51"></a><span class="w">      </span><span class="p">}</span>
+</span><span id="__span-8-52"><a id="__codelineno-8-52" name="__codelineno-8-52" href="#diy-nodes-anytls-reality-on-sing-box-__codelineno-8-52"></a><span class="w">    </span><span class="p">},</span>
+</span><span id="__span-8-53"><a id="__codelineno-8-53" name="__codelineno-8-53" href="#diy-nodes-anytls-reality-on-sing-box-__codelineno-8-53"></a><span class="w">    </span><span class="p">{</span>
+</span><span id="__span-8-54"><a id="__codelineno-8-54" name="__codelineno-8-54" href="#diy-nodes-anytls-reality-on-sing-box-__codelineno-8-54"></a><span class="w">      </span><span class="nt">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"direct"</span><span class="p">,</span>
+</span><span id="__span-8-55"><a id="__codelineno-8-55" name="__codelineno-8-55" href="#diy-nodes-anytls-reality-on-sing-box-__codelineno-8-55"></a><span class="w">      </span><span class="nt">"tag"</span><span class="p">:</span><span class="w"> </span><span class="s2">"direct"</span>
+</span><span id="__span-8-56"><a id="__codelineno-8-56" name="__codelineno-8-56" href="#diy-nodes-anytls-reality-on-sing-box-__codelineno-8-56"></a><span class="w">    </span><span class="p">}</span>
+</span><span id="__span-8-57"><a id="__codelineno-8-57" name="__codelineno-8-57" href="#diy-nodes-anytls-reality-on-sing-box-__codelineno-8-57"></a><span class="w">  </span><span class="p">],</span>
+</span><span id="__span-8-58"><a id="__codelineno-8-58" name="__codelineno-8-58" href="#diy-nodes-anytls-reality-on-sing-box-__codelineno-8-58"></a><span class="w">  </span><span class="nt">"route"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-8-59"><a id="__codelineno-8-59" name="__codelineno-8-59" href="#diy-nodes-anytls-reality-on-sing-box-__codelineno-8-59"></a><span class="w">    </span><span class="nt">"rules"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span>
+</span><span id="__span-8-60"><a id="__codelineno-8-60" name="__codelineno-8-60" href="#diy-nodes-anytls-reality-on-sing-box-__codelineno-8-60"></a><span class="w">      </span><span class="p">{</span>
+</span><span id="__span-8-61"><a id="__codelineno-8-61" name="__codelineno-8-61" href="#diy-nodes-anytls-reality-on-sing-box-__codelineno-8-61"></a><span class="w">        </span><span class="nt">"protocol"</span><span class="p">:</span><span class="w"> </span><span class="s2">"dns"</span><span class="p">,</span>
+</span><span id="__span-8-62"><a id="__codelineno-8-62" name="__codelineno-8-62" href="#diy-nodes-anytls-reality-on-sing-box-__codelineno-8-62"></a><span class="w">        </span><span class="nt">"action"</span><span class="p">:</span><span class="w"> </span><span class="s2">"hijack-dns"</span>
+</span><span id="__span-8-63"><a id="__codelineno-8-63" name="__codelineno-8-63" href="#diy-nodes-anytls-reality-on-sing-box-__codelineno-8-63"></a><span class="w">      </span><span class="p">},</span>
+</span><span id="__span-8-64"><a id="__codelineno-8-64" name="__codelineno-8-64" href="#diy-nodes-anytls-reality-on-sing-box-__codelineno-8-64"></a><span class="w">      </span><span class="p">{</span>
+</span><span id="__span-8-65"><a id="__codelineno-8-65" name="__codelineno-8-65" href="#diy-nodes-anytls-reality-on-sing-box-__codelineno-8-65"></a><span class="w">        </span><span class="nt">"ip_is_private"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span>
+</span><span id="__span-8-66"><a id="__codelineno-8-66" name="__codelineno-8-66" href="#diy-nodes-anytls-reality-on-sing-box-__codelineno-8-66"></a><span class="w">        </span><span class="nt">"action"</span><span class="p">:</span><span class="w"> </span><span class="s2">"route"</span><span class="p">,</span>
+</span><span id="__span-8-67"><a id="__codelineno-8-67" name="__codelineno-8-67" href="#diy-nodes-anytls-reality-on-sing-box-__codelineno-8-67"></a><span class="w">        </span><span class="nt">"outbound"</span><span class="p">:</span><span class="w"> </span><span class="s2">"direct"</span>
+</span><span id="__span-8-68"><a id="__codelineno-8-68" name="__codelineno-8-68" href="#diy-nodes-anytls-reality-on-sing-box-__codelineno-8-68"></a><span class="w">      </span><span class="p">},</span>
+</span><span id="__span-8-69"><a id="__codelineno-8-69" name="__codelineno-8-69" href="#diy-nodes-anytls-reality-on-sing-box-__codelineno-8-69"></a><span class="w">      </span><span class="p">{</span>
+</span><span id="__span-8-70"><a id="__codelineno-8-70" name="__codelineno-8-70" href="#diy-nodes-anytls-reality-on-sing-box-__codelineno-8-70"></a><span class="w">        </span><span class="nt">"action"</span><span class="p">:</span><span class="w"> </span><span class="s2">"route"</span><span class="p">,</span>
+</span><span id="__span-8-71"><a id="__codelineno-8-71" name="__codelineno-8-71" href="#diy-nodes-anytls-reality-on-sing-box-__codelineno-8-71"></a><span class="w">        </span><span class="nt">"outbound"</span><span class="p">:</span><span class="w"> </span><span class="s2">"anytls-out"</span>
+</span><span id="__span-8-72"><a id="__codelineno-8-72" name="__codelineno-8-72" href="#diy-nodes-anytls-reality-on-sing-box-__codelineno-8-72"></a><span class="w">      </span><span class="p">}</span>
+</span><span id="__span-8-73"><a id="__codelineno-8-73" name="__codelineno-8-73" href="#diy-nodes-anytls-reality-on-sing-box-__codelineno-8-73"></a><span class="w">    </span><span class="p">],</span>
+</span><span id="__span-8-74"><a id="__codelineno-8-74" name="__codelineno-8-74" href="#diy-nodes-anytls-reality-on-sing-box-__codelineno-8-74"></a><span class="w">    </span><span class="nt">"auto_detect_interface"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span>
+</span><span id="__span-8-75"><a id="__codelineno-8-75" name="__codelineno-8-75" href="#diy-nodes-anytls-reality-on-sing-box-__codelineno-8-75"></a><span class="w">    </span><span class="nt">"default_domain_resolver"</span><span class="p">:</span><span class="w"> </span><span class="s2">"local"</span><span class="w"> </span><span class="c1">// 修复 WARN 警告</span>
+</span><span id="__span-8-76"><a id="__codelineno-8-76" name="__codelineno-8-76" href="#diy-nodes-anytls-reality-on-sing-box-__codelineno-8-76"></a><span class="w">  </span><span class="p">}</span>
+</span><span id="__span-8-77"><a id="__codelineno-8-77" name="__codelineno-8-77" href="#diy-nodes-anytls-reality-on-sing-box-__codelineno-8-77"></a><span class="p">}</span>
+</span></code></pre></div>
+<p>在客户端，将以上内容中的必要信息替换，保存为json文件，执行检查，以管理员权限运行如下脚本。</p>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-9-1"><a id="__codelineno-9-1" name="__codelineno-9-1" href="#diy-nodes-anytls-reality-on-sing-box-__codelineno-9-1"></a>sing-box<span class="w"> </span>check<span class="w"> </span>-c<span class="w"> </span>~/config.json
+</span><span id="__span-9-2"><a id="__codelineno-9-2" name="__codelineno-9-2" href="#diy-nodes-anytls-reality-on-sing-box-__codelineno-9-2"></a>
+</span><span id="__span-9-3"><a id="__codelineno-9-3" name="__codelineno-9-3" href="#diy-nodes-anytls-reality-on-sing-box-__codelineno-9-3"></a><span class="c1"># 运行sing-box</span>
+</span><span id="__span-9-4"><a id="__codelineno-9-4" name="__codelineno-9-4" href="#diy-nodes-anytls-reality-on-sing-box-__codelineno-9-4"></a>sing-box<span class="w"> </span>run<span class="w"> </span>-c<span class="w"> </span>~/config.json
+</span></code></pre></div>
+<p>打开浏览器检查是否能科学上网。如果出现任何错误，在客户端会有错误日志打印出来，服务端使用<code>journalctl -u sing-box -f</code> 查看日志。</p>
+<h2 id="diy-nodes-anytls-reality-on-sing-box-10">10. 参考资料<a class="headerlink" href="#diy-nodes-anytls-reality-on-sing-box-10" title="Permanent link">¶</a></h2>
+<p><a href="https://www.youtube.com/watch?v=AmA37gOaqOs">AnyTLS+Reality+SingBox节点搭建教程</a></p>
+<p><a href="https://github.com/kzlgithub/sbyt7">AnyTLS+Reality+SingBox节点搭建教程</a></p></body></html></section></section></div><style>.print-site-enumerate-headings #index > h1:before { content: '1 ' }
 
                 .print-site-enumerate-headings #index h2:before { content: '1.' counter(counter-index-2) ' ' }
                 .print-site-enumerate-headings #index h2 {  counter-reset: counter-index-3 ;  counter-increment: counter-index-2 }
@@ -7595,6 +7911,11 @@ Jan 30 23:36:48 server-0hrxrx.novalocal sing-box[3807]: FATAL[0000] to continuin
 
                 .print-site-enumerate-headings #diy-nodes-anytls-on-sing-box h2:before { content: '12.4.' counter(counter-diy-nodes-anytls-on-sing-box-2) ' ' }
                 .print-site-enumerate-headings #diy-nodes-anytls-on-sing-box h2 {  counter-increment: counter-diy-nodes-anytls-on-sing-box-2 }
+            
+.print-site-enumerate-headings #diy-nodes-anytls-reality-on-sing-box > h1:before { content: '12.5 ' }
+
+                .print-site-enumerate-headings #diy-nodes-anytls-reality-on-sing-box h2:before { content: '12.5.' counter(counter-diy-nodes-anytls-reality-on-sing-box-2) ' ' }
+                .print-site-enumerate-headings #diy-nodes-anytls-reality-on-sing-box h2 {  counter-increment: counter-diy-nodes-anytls-reality-on-sing-box-2 }
             </style>
 
 
