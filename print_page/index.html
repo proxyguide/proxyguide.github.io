@@ -1593,6 +1593,29 @@
 
               
             
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../diy-nodes/anytls-on-sing-box/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    使用 sing-box 搭建 Anytls 节点
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
           </ul>
         </nav>
       
@@ -2161,6 +2184,15 @@
   
 </li>
         
+          <li class="md-nav__item">
+  <a href="#diy-nodes-anytls-on-sing-box" class="md-nav__link">
+    <span class="md-ellipsis">
+      12.4 使用 sing-box 搭建 Anytls 节点
+    </span>
+  </a>
+  
+</li>
+        
       </ul>
     </nav>
   
@@ -2709,6 +2741,15 @@
   
 </li>
         
+          <li class="md-nav__item">
+  <a href="#diy-nodes-anytls-on-sing-box" class="md-nav__link">
+    <span class="md-ellipsis">
+      12.4 使用 sing-box 搭建 Anytls 节点
+    </span>
+  </a>
+  
+</li>
+        
       </ul>
     </nav>
   
@@ -2831,6 +2872,7 @@ document.getElementById("printpdfbtn").addEventListener('click', printPdf, false
 <li><a href="#diy-nodes-ss-via-sing-box">使用 sing-box 搭建 SS 节点</a></li>
 <li><a href="#diy-nodes-hysteria2-on-sing-box">使用 sing-box 搭建 Hysteria2 节点</a></li>
 <li><a href="#diy-nodes-tuic-on-sing-box">使用 sing-box 搭建 Tuic 节点</a></li>
+<li><a href="#diy-nodes-anytls-on-sing-box">使用 sing-box 搭建 Anytls 节点</a></li>
 </ul>
 <h2 id="index-3">3. 其他<a class="headerlink" href="#index-3" title="Permanent link">¶</a></h2>
 <ul>
@@ -6809,7 +6851,7 @@ Jan 30 23:36:48 server-0hrxrx.novalocal sing-box[3807]: FATAL[0000] to continuin
 </span><span id="__span-4-17"><a id="__codelineno-4-17" name="__codelineno-4-17" href="#diy-nodes-hysteria2-on-sing-box-__codelineno-4-17"></a><span class="w">      </span><span class="nt">"users"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span>
 </span><span id="__span-4-18"><a id="__codelineno-4-18" name="__codelineno-4-18" href="#diy-nodes-hysteria2-on-sing-box-__codelineno-4-18"></a><span class="w">        </span><span class="p">{</span>
 </span><span id="__span-4-19"><a id="__codelineno-4-19" name="__codelineno-4-19" href="#diy-nodes-hysteria2-on-sing-box-__codelineno-4-19"></a><span class="w">          </span><span class="nt">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"user1"</span><span class="p">,</span>
-</span><span id="__span-4-20"><a id="__codelineno-4-20" name="__codelineno-4-20" href="#diy-nodes-hysteria2-on-sing-box-__codelineno-4-20"></a><span class="w">          </span><span class="nt">"password"</span><span class="p">:</span><span class="w"> </span><span class="s2">"71a636a6-974d-4424-8653-4cc332a9cd3e"</span>
+</span><span id="__span-4-20"><a id="__codelineno-4-20" name="__codelineno-4-20" href="#diy-nodes-hysteria2-on-sing-box-__codelineno-4-20"></a><span class="w">          </span><span class="nt">"password"</span><span class="p">:</span><span class="w"> </span><span class="s2">"71a636a6-974d-4454-8653-4cc332a9cd3e"</span>
 </span><span id="__span-4-21"><a id="__codelineno-4-21" name="__codelineno-4-21" href="#diy-nodes-hysteria2-on-sing-box-__codelineno-4-21"></a><span class="w">        </span><span class="p">}</span>
 </span><span id="__span-4-22"><a id="__codelineno-4-22" name="__codelineno-4-22" href="#diy-nodes-hysteria2-on-sing-box-__codelineno-4-22"></a><span class="w">      </span><span class="p">],</span>
 </span><span id="__span-4-23"><a id="__codelineno-4-23" name="__codelineno-4-23" href="#diy-nodes-hysteria2-on-sing-box-__codelineno-4-23"></a>
@@ -6859,7 +6901,7 @@ Jan 30 23:36:48 server-0hrxrx.novalocal sing-box[3807]: FATAL[0000] to continuin
 </span></code></pre></div>
 <h2 id="diy-nodes-hysteria2-on-sing-box-8">8. 测试<a class="headerlink" href="#diy-nodes-hysteria2-on-sing-box-8" title="Permanent link">¶</a></h2>
 <p>V2rayN 测试，将以下连接字符串中域名替换成真实域名，粘贴到 v2rayN 节点分组，然后测试节点真连接延迟：</p>
-<p>连接字符串： <code>hysteria2://71a636a6-974d-4424-8653-4cc332a9cd3e@hy2.example.top:8443?sni=hy2.example.top</code></p>
+<p>连接字符串： <code>hysteria2://71a636a6-974d-4454-8653-4cc332a9cd3e@hy2.example.top:8443?sni=hy2.example.top</code></p>
 <p>如果使用 clash 系列客户端, 可以将以下配置中的 hy2.example.top 替换成真实域名， 导入到客户端进行测试：</p>
 <div class="language-yaml highlight"><pre><span></span><code><span id="__span-9-1"><a id="__codelineno-9-1" name="__codelineno-9-1" href="#diy-nodes-hysteria2-on-sing-box-__codelineno-9-1"></a><span class="nt">mixed-port</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">7890</span>
 </span><span id="__span-9-2"><a id="__codelineno-9-2" name="__codelineno-9-2" href="#diy-nodes-hysteria2-on-sing-box-__codelineno-9-2"></a><span class="nt">allow-lan</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">true</span>
@@ -6878,7 +6920,7 @@ Jan 30 23:36:48 server-0hrxrx.novalocal sing-box[3807]: FATAL[0000] to continuin
 </span><span id="__span-9-15"><a id="__codelineno-9-15" name="__codelineno-9-15" href="#diy-nodes-hysteria2-on-sing-box-__codelineno-9-15"></a><span class="w">    </span><span class="nt">fallback</span><span class="p">:</span><span class="w"> </span><span class="p p-Indicator">[</span><span class="s">'https://doh-pure.onedns.net/dns-query'</span><span class="p p-Indicator">,</span><span class="w"> </span><span class="s">'https://ada.openbld.net/dns-query'</span><span class="p p-Indicator">,</span><span class="w"> </span><span class="s">'https://223.5.5.5/dns-query'</span><span class="p p-Indicator">,</span><span class="w"> </span><span class="s">'https://223.6.6.6/dns-query'</span><span class="p p-Indicator">]</span>
 </span><span id="__span-9-16"><a id="__codelineno-9-16" name="__codelineno-9-16" href="#diy-nodes-hysteria2-on-sing-box-__codelineno-9-16"></a><span class="w">    </span><span class="nt">fallback-filter</span><span class="p">:</span><span class="w"> </span><span class="p p-Indicator">{</span><span class="nt"> geoip</span><span class="p">:</span><span class="w"> </span><span class="nv">true</span><span class="p p-Indicator">,</span><span class="nt"> ipcidr</span><span class="p">:</span><span class="w"> </span><span class="p p-Indicator">[</span><span class="nv">240.0.0.0/4</span><span class="p p-Indicator">,</span><span class="w"> </span><span class="nv">0.0.0.0/32</span><span class="p p-Indicator">]</span><span class="w"> </span><span class="p p-Indicator">}</span>
 </span><span id="__span-9-17"><a id="__codelineno-9-17" name="__codelineno-9-17" href="#diy-nodes-hysteria2-on-sing-box-__codelineno-9-17"></a><span class="nt">proxies</span><span class="p">:</span>
-</span><span id="__span-9-18"><a id="__codelineno-9-18" name="__codelineno-9-18" href="#diy-nodes-hysteria2-on-sing-box-__codelineno-9-18"></a><span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="p p-Indicator">{</span><span class="nt"> name</span><span class="p">:</span><span class="w"> </span><span class="s">'hy2-on-sing-box'</span><span class="p p-Indicator">,</span><span class="nt"> server</span><span class="p">:</span><span class="w"> </span><span class="nv">hy2.example.top</span><span class="p p-Indicator">,</span><span class="nt"> port</span><span class="p">:</span><span class="w"> </span><span class="nv">8443</span><span class="p p-Indicator">,</span><span class="nt"> sni</span><span class="p">:</span><span class="w"> </span><span class="nv">hy2.example.top</span><span class="p p-Indicator">,</span><span class="nt"> up</span><span class="p">:</span><span class="w"> </span><span class="nv">200</span><span class="p p-Indicator">,</span><span class="nt"> down</span><span class="p">:</span><span class="w"> </span><span class="nv">200</span><span class="p p-Indicator">,</span><span class="nt"> skip-cert-verify</span><span class="p">:</span><span class="w"> </span><span class="nv">false</span><span class="p p-Indicator">,</span><span class="nt"> type</span><span class="p">:</span><span class="w"> </span><span class="nv">hysteria2</span><span class="p p-Indicator">,</span><span class="nt"> password</span><span class="p">:</span><span class="w"> </span><span class="nv">71a636a6-974d-4424-8653-4cc332a9cd3e</span><span class="w"> </span><span class="p p-Indicator">}</span>
+</span><span id="__span-9-18"><a id="__codelineno-9-18" name="__codelineno-9-18" href="#diy-nodes-hysteria2-on-sing-box-__codelineno-9-18"></a><span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="p p-Indicator">{</span><span class="nt"> name</span><span class="p">:</span><span class="w"> </span><span class="s">'hy2-on-sing-box'</span><span class="p p-Indicator">,</span><span class="nt"> server</span><span class="p">:</span><span class="w"> </span><span class="nv">hy2.example.top</span><span class="p p-Indicator">,</span><span class="nt"> port</span><span class="p">:</span><span class="w"> </span><span class="nv">8443</span><span class="p p-Indicator">,</span><span class="nt"> sni</span><span class="p">:</span><span class="w"> </span><span class="nv">hy2.example.top</span><span class="p p-Indicator">,</span><span class="nt"> up</span><span class="p">:</span><span class="w"> </span><span class="nv">200</span><span class="p p-Indicator">,</span><span class="nt"> down</span><span class="p">:</span><span class="w"> </span><span class="nv">200</span><span class="p p-Indicator">,</span><span class="nt"> skip-cert-verify</span><span class="p">:</span><span class="w"> </span><span class="nv">false</span><span class="p p-Indicator">,</span><span class="nt"> type</span><span class="p">:</span><span class="w"> </span><span class="nv">hysteria2</span><span class="p p-Indicator">,</span><span class="nt"> password</span><span class="p">:</span><span class="w"> </span><span class="nv">71a636a6-974d-4454-8653-4cc332a9cd3e</span><span class="w"> </span><span class="p p-Indicator">}</span>
 </span><span id="__span-9-19"><a id="__codelineno-9-19" name="__codelineno-9-19" href="#diy-nodes-hysteria2-on-sing-box-__codelineno-9-19"></a>
 </span><span id="__span-9-20"><a id="__codelineno-9-20" name="__codelineno-9-20" href="#diy-nodes-hysteria2-on-sing-box-__codelineno-9-20"></a><span class="nt">proxy-groups</span><span class="p">:</span>
 </span><span id="__span-9-21"><a id="__codelineno-9-21" name="__codelineno-9-21" href="#diy-nodes-hysteria2-on-sing-box-__codelineno-9-21"></a><span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="p p-Indicator">{</span><span class="nt"> name</span><span class="p">:</span><span class="w"> </span><span class="nv">hy2-group</span><span class="p p-Indicator">,</span><span class="nt"> type</span><span class="p">:</span><span class="w"> </span><span class="nv">select</span><span class="p p-Indicator">,</span><span class="nt"> proxies</span><span class="p">:</span><span class="w"> </span><span class="p p-Indicator">[</span><span class="s">'hy2-on-sing-box'</span><span class="p p-Indicator">],</span><span class="nt"> url</span><span class="p">:</span><span class="w"> </span><span class="s">'http://www.gstatic.com/generate_204'</span><span class="p p-Indicator">,</span><span class="nt"> interval</span><span class="p">:</span><span class="w"> </span><span class="nv">86400</span><span class="w"> </span><span class="p p-Indicator">}</span>
@@ -7110,7 +7152,7 @@ Jan 30 23:36:48 server-0hrxrx.novalocal sing-box[3807]: FATAL[0000] to continuin
 </span><span id="__span-9-15"><a id="__codelineno-9-15" name="__codelineno-9-15" href="#diy-nodes-tuic-on-sing-box-__codelineno-9-15"></a><span class="w">    </span><span class="nt">fallback</span><span class="p">:</span><span class="w"> </span><span class="p p-Indicator">[</span><span class="s">'https://doh-pure.onedns.net/dns-query'</span><span class="p p-Indicator">,</span><span class="w"> </span><span class="s">'https://ada.openbld.net/dns-query'</span><span class="p p-Indicator">,</span><span class="w"> </span><span class="s">'https://223.5.5.5/dns-query'</span><span class="p p-Indicator">,</span><span class="w"> </span><span class="s">'https://223.6.6.6/dns-query'</span><span class="p p-Indicator">]</span>
 </span><span id="__span-9-16"><a id="__codelineno-9-16" name="__codelineno-9-16" href="#diy-nodes-tuic-on-sing-box-__codelineno-9-16"></a><span class="w">    </span><span class="nt">fallback-filter</span><span class="p">:</span><span class="w"> </span><span class="p p-Indicator">{</span><span class="nt"> geoip</span><span class="p">:</span><span class="w"> </span><span class="nv">true</span><span class="p p-Indicator">,</span><span class="nt"> ipcidr</span><span class="p">:</span><span class="w"> </span><span class="p p-Indicator">[</span><span class="nv">240.0.0.0/4</span><span class="p p-Indicator">,</span><span class="w"> </span><span class="nv">0.0.0.0/32</span><span class="p p-Indicator">]</span><span class="w"> </span><span class="p p-Indicator">}</span>
 </span><span id="__span-9-17"><a id="__codelineno-9-17" name="__codelineno-9-17" href="#diy-nodes-tuic-on-sing-box-__codelineno-9-17"></a><span class="nt">proxies</span><span class="p">:</span>
-</span><span id="__span-9-18"><a id="__codelineno-9-18" name="__codelineno-9-18" href="#diy-nodes-tuic-on-sing-box-__codelineno-9-18"></a><span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="p p-Indicator">{</span><span class="nt"> name</span><span class="p">:</span><span class="w"> </span><span class="nv">tuic-on-sing-box</span><span class="p p-Indicator">,</span><span class="nt"> type</span><span class="p">:</span><span class="w"> </span><span class="nv">tuic</span><span class="p p-Indicator">,</span><span class="nt"> server</span><span class="p">:</span><span class="w"> </span><span class="nv">tuic.example.top</span><span class="p p-Indicator">,</span><span class="nt"> port</span><span class="p">:</span><span class="w"> </span><span class="nv">8443</span><span class="p p-Indicator">,</span><span class="nt"> udp</span><span class="p">:</span><span class="w"> </span><span class="nv">true</span><span class="p p-Indicator">,</span><span class="nt"> uuid</span><span class="p">:</span><span class="w"> </span><span class="nv">71a636a6-974d-4424-8653-4cc332a9cd3e</span><span class="p p-Indicator">,</span><span class="nt"> password</span><span class="p">:</span><span class="w"> </span><span class="nv">71a636a6-974d-4424-8653-4cc332a9cd3e</span><span class="p p-Indicator">,</span><span class="nt"> skip-cert-verify</span><span class="p">:</span><span class="w"> </span><span class="nv">false</span><span class="p p-Indicator">,</span><span class="nt"> sni</span><span class="p">:</span><span class="w"> </span><span class="nv">tuic.example.top</span><span class="p p-Indicator">,</span><span class="nt"> alpn</span><span class="p">:</span><span class="w"> </span><span class="p p-Indicator">[</span><span class="nv">h3</span><span class="p p-Indicator">],</span><span class="nt"> congestion-controller</span><span class="p">:</span><span class="w"> </span><span class="nv">bbr</span><span class="p p-Indicator">,</span><span class="nt"> udp-relay-mode</span><span class="p">:</span><span class="w"> </span><span class="nv">native</span><span class="w"> </span><span class="p p-Indicator">}</span>
+</span><span id="__span-9-18"><a id="__codelineno-9-18" name="__codelineno-9-18" href="#diy-nodes-tuic-on-sing-box-__codelineno-9-18"></a><span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="p p-Indicator">{</span><span class="nt"> name</span><span class="p">:</span><span class="w"> </span><span class="nv">tuic-on-sing-box</span><span class="p p-Indicator">,</span><span class="nt"> type</span><span class="p">:</span><span class="w"> </span><span class="nv">tuic</span><span class="p p-Indicator">,</span><span class="nt"> server</span><span class="p">:</span><span class="w"> </span><span class="nv">tuic.example.top</span><span class="p p-Indicator">,</span><span class="nt"> port</span><span class="p">:</span><span class="w"> </span><span class="nv">8443</span><span class="p p-Indicator">,</span><span class="nt"> udp</span><span class="p">:</span><span class="w"> </span><span class="nv">true</span><span class="p p-Indicator">,</span><span class="nt"> uuid</span><span class="p">:</span><span class="w"> </span><span class="nv">71a636a6-974d-4454-8653-4cc332a9cd3e</span><span class="p p-Indicator">,</span><span class="nt"> password</span><span class="p">:</span><span class="w"> </span><span class="nv">71a636a6-974d-4454-8653-4cc332a9cd3e</span><span class="p p-Indicator">,</span><span class="nt"> skip-cert-verify</span><span class="p">:</span><span class="w"> </span><span class="nv">false</span><span class="p p-Indicator">,</span><span class="nt"> sni</span><span class="p">:</span><span class="w"> </span><span class="nv">tuic.example.top</span><span class="p p-Indicator">,</span><span class="nt"> alpn</span><span class="p">:</span><span class="w"> </span><span class="p p-Indicator">[</span><span class="nv">h3</span><span class="p p-Indicator">],</span><span class="nt"> congestion-controller</span><span class="p">:</span><span class="w"> </span><span class="nv">bbr</span><span class="p p-Indicator">,</span><span class="nt"> udp-relay-mode</span><span class="p">:</span><span class="w"> </span><span class="nv">native</span><span class="w"> </span><span class="p p-Indicator">}</span>
 </span><span id="__span-9-19"><a id="__codelineno-9-19" name="__codelineno-9-19" href="#diy-nodes-tuic-on-sing-box-__codelineno-9-19"></a>
 </span><span id="__span-9-20"><a id="__codelineno-9-20" name="__codelineno-9-20" href="#diy-nodes-tuic-on-sing-box-__codelineno-9-20"></a><span class="nt">proxy-groups</span><span class="p">:</span>
 </span><span id="__span-9-21"><a id="__codelineno-9-21" name="__codelineno-9-21" href="#diy-nodes-tuic-on-sing-box-__codelineno-9-21"></a><span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="p p-Indicator">{</span><span class="nt"> name</span><span class="p">:</span><span class="w"> </span><span class="nv">tuic-group</span><span class="p p-Indicator">,</span><span class="nt"> type</span><span class="p">:</span><span class="w"> </span><span class="nv">select</span><span class="p p-Indicator">,</span><span class="nt"> proxies</span><span class="p">:</span><span class="w"> </span><span class="p p-Indicator">[</span><span class="s">'tuic-on-sing-box'</span><span class="p p-Indicator">],</span><span class="nt"> url</span><span class="p">:</span><span class="w"> </span><span class="s">'http://www.gstatic.com/generate_204'</span><span class="p p-Indicator">,</span><span class="nt"> interval</span><span class="p">:</span><span class="w"> </span><span class="nv">86400</span><span class="w"> </span><span class="p p-Indicator">}</span>
@@ -7121,7 +7163,215 @@ Jan 30 23:36:48 server-0hrxrx.novalocal sing-box[3807]: FATAL[0000] to continuin
 </span><span id="__span-9-26"><a id="__codelineno-9-26" name="__codelineno-9-26" href="#diy-nodes-tuic-on-sing-box-__codelineno-9-26"></a><span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="s">'DOMAIN-KEYWORD,-cn,DIRECT'</span>
 </span><span id="__span-9-27"><a id="__codelineno-9-27" name="__codelineno-9-27" href="#diy-nodes-tuic-on-sing-box-__codelineno-9-27"></a><span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="s">'GEOIP,CN,DIRECT'</span>
 </span><span id="__span-9-28"><a id="__codelineno-9-28" name="__codelineno-9-28" href="#diy-nodes-tuic-on-sing-box-__codelineno-9-28"></a><span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="s">'MATCH,tuic-group'</span>
-</span></code></pre></div></body></html></section></section></div><style>.print-site-enumerate-headings #index > h1:before { content: '1 ' }
+</span></code></pre></div></body></html></section><section class="print-page" id="diy-nodes-anytls-on-sing-box" heading-number="12.4"><h1 id="diy-nodes-anytls-on-sing-box-diy-nodes-anytls-on-sing-box">使用 sing-box 搭建 Anytls 节点</h1><html><head>
+        <script type="text/javascript">
+        document.addEventListener('DOMContentLoaded', function () {
+            remove_material_navigation();remove_mkdocs_theme_navigation();
+        })
+        </script>
+        </head><body><p>sing-box 是一个开源的、跨平台的通用代理与网络转发工具，常用于科学上网、流量分流、透明代理、流媒体解锁和多协议代理服务部署。它可以看作是新一代的高性能代理核心之一，设计目标是高性能、模块化、可扩展。它可以：</p>
+<ul>
+<li>
+<p>作为代理客户端使用</p>
+</li>
+<li>
+<p>作为代理服务器部署</p>
+</li>
+<li>
+<p>做透明代理网关</p>
+</li>
+<li>
+<p>实现分流策略</p>
+</li>
+<li>
+<p>解锁流媒体</p>
+</li>
+<li>
+<p>构建家庭或服务器网络出口</p>
+</li>
+</ul>
+<p>本文主要介绍如何使用 sing-box 作为代理服务器，并部署一个 AnyTLS 节点。</p>
+<h2 id="diy-nodes-anytls-on-sing-box-1">1. 准备工作<a class="headerlink" href="#diy-nodes-anytls-on-sing-box-1" title="Permanent link">¶</a></h2>
+<ul>
+<li>
+<p>海外 VPS 一台安装好主流的操作系统 （Almalinux 8+、Ubuntu 16+、Debian 8+）</p>
+</li>
+<li>
+<p>域名一个</p>
+</li>
+<li>
+<p>DNS 指向 VPS IP</p>
+</li>
+<li>
+<p>80 端口开放，并且未被占用 （用于申请证书）</p>
+</li>
+</ul>
+<p>本教程使用的是一台<a href="https://hostvds.com/?affiliate_uuid=4dc97e32-b519-48b2-8e7e-c869cdf7948e">Hostvds VPS</a> 和 一个<a href="https://www.namesilo.com/pricing?rid=5d23d49ag">NameSilo DNS</a></p>
+<ul>
+<li>配置：2 vCore 4 GB RAM (3.99$)</li>
+<li>域名： .top 域名 (1.88$)</li>
+<li>操作系统： Almalinux 9</li>
+</ul>
+<p>域名解析：</p>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#diy-nodes-anytls-on-sing-box-__codelineno-0-1"></a>配置<span class="w"> </span>A<span class="w"> </span>记录:
+</span><span id="__span-0-2"><a id="__codelineno-0-2" name="__codelineno-0-2" href="#diy-nodes-anytls-on-sing-box-__codelineno-0-2"></a>
+</span><span id="__span-0-3"><a id="__codelineno-0-3" name="__codelineno-0-3" href="#diy-nodes-anytls-on-sing-box-__codelineno-0-3"></a>anytls.example.top<span class="w"> </span>-&gt;<span class="w"> </span><span class="m">1</span>.2.3.4<span class="o">(</span>服务器的<span class="w"> </span>ip<span class="w"> </span>地址<span class="o">)</span>
+</span></code></pre></div>
+<h2 id="diy-nodes-anytls-on-sing-box-2-sing-box">2. 安装 sing-box<a class="headerlink" href="#diy-nodes-anytls-on-sing-box-2-sing-box" title="Permanent link">¶</a></h2>
+<p>这里以 Redhat 系列发行版为例，更多平台安装方式，请参考 sing-box 官方文档，或之前讲 sing-box 作为代理客户端教程中 sing-box 安装部分。</p>
+<p>对于 Redhat 系列发行版（Centos, Fedora, AlmaLinux, Rocky Linux 等）</p>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-1-1"><a id="__codelineno-1-1" name="__codelineno-1-1" href="#diy-nodes-anytls-on-sing-box-__codelineno-1-1"></a><span class="c1"># 向 DNF 添加 sing-box 官方软件仓库</span>
+</span><span id="__span-1-2"><a id="__codelineno-1-2" name="__codelineno-1-2" href="#diy-nodes-anytls-on-sing-box-__codelineno-1-2"></a><span class="c1"># 这样系统就可以从该仓库获取 sing-box 软件包</span>
+</span><span id="__span-1-3"><a id="__codelineno-1-3" name="__codelineno-1-3" href="#diy-nodes-anytls-on-sing-box-__codelineno-1-3"></a>sudo<span class="w"> </span>dnf<span class="w"> </span>config-manager<span class="w"> </span>addrepo<span class="w"> </span>--add-repo<span class="o">=</span>https://sing-box.app/sing-box.repo
+</span><span id="__span-1-4"><a id="__codelineno-1-4" name="__codelineno-1-4" href="#diy-nodes-anytls-on-sing-box-__codelineno-1-4"></a>
+</span><span id="__span-1-5"><a id="__codelineno-1-5" name="__codelineno-1-5" href="#diy-nodes-anytls-on-sing-box-__codelineno-1-5"></a><span class="c1"># 从指定网址下载并导入 sing-box 官方的 GPG 公钥</span>
+</span><span id="__span-1-6"><a id="__codelineno-1-6" name="__codelineno-1-6" href="#diy-nodes-anytls-on-sing-box-__codelineno-1-6"></a><span class="c1"># 用于验证软件包签名，防止安装被篡改的软件</span>
+</span><span id="__span-1-7"><a id="__codelineno-1-7" name="__codelineno-1-7" href="#diy-nodes-anytls-on-sing-box-__codelineno-1-7"></a>sudo<span class="w"> </span>rpm<span class="w"> </span>--import<span class="w"> </span>https://sing-box.app/gpg.key
+</span><span id="__span-1-8"><a id="__codelineno-1-8" name="__codelineno-1-8" href="#diy-nodes-anytls-on-sing-box-__codelineno-1-8"></a>
+</span><span id="__span-1-9"><a id="__codelineno-1-9" name="__codelineno-1-9" href="#diy-nodes-anytls-on-sing-box-__codelineno-1-9"></a><span class="c1"># 清除 DNF 的所有缓存数据（软件包缓存、仓库元数据等）</span>
+</span><span id="__span-1-10"><a id="__codelineno-1-10" name="__codelineno-1-10" href="#diy-nodes-anytls-on-sing-box-__codelineno-1-10"></a><span class="c1"># 常用于仓库更新异常或软件列表不同步时强制重新下载缓存</span>
+</span><span id="__span-1-11"><a id="__codelineno-1-11" name="__codelineno-1-11" href="#diy-nodes-anytls-on-sing-box-__codelineno-1-11"></a>sudo<span class="w"> </span>dnf<span class="w"> </span>clean<span class="w"> </span>all
+</span><span id="__span-1-12"><a id="__codelineno-1-12" name="__codelineno-1-12" href="#diy-nodes-anytls-on-sing-box-__codelineno-1-12"></a>
+</span><span id="__span-1-13"><a id="__codelineno-1-13" name="__codelineno-1-13" href="#diy-nodes-anytls-on-sing-box-__codelineno-1-13"></a><span class="c1"># 更新本地软件仓库缓存</span>
+</span><span id="__span-1-14"><a id="__codelineno-1-14" name="__codelineno-1-14" href="#diy-nodes-anytls-on-sing-box-__codelineno-1-14"></a><span class="c1"># 让系统读取刚添加的仓库中的软件列表</span>
+</span><span id="__span-1-15"><a id="__codelineno-1-15" name="__codelineno-1-15" href="#diy-nodes-anytls-on-sing-box-__codelineno-1-15"></a>sudo<span class="w"> </span>dnf<span class="w"> </span>makecache
+</span><span id="__span-1-16"><a id="__codelineno-1-16" name="__codelineno-1-16" href="#diy-nodes-anytls-on-sing-box-__codelineno-1-16"></a>
+</span><span id="__span-1-17"><a id="__codelineno-1-17" name="__codelineno-1-17" href="#diy-nodes-anytls-on-sing-box-__codelineno-1-17"></a><span class="c1"># 安装 sing-box</span>
+</span><span id="__span-1-18"><a id="__codelineno-1-18" name="__codelineno-1-18" href="#diy-nodes-anytls-on-sing-box-__codelineno-1-18"></a><span class="c1"># -y 表示自动确认安装过程中的提示</span>
+</span><span id="__span-1-19"><a id="__codelineno-1-19" name="__codelineno-1-19" href="#diy-nodes-anytls-on-sing-box-__codelineno-1-19"></a>sudo<span class="w"> </span>dnf<span class="w"> </span>install<span class="w"> </span>-y<span class="w"> </span>sing-box
+</span><span id="__span-1-20"><a id="__codelineno-1-20" name="__codelineno-1-20" href="#diy-nodes-anytls-on-sing-box-__codelineno-1-20"></a>
+</span><span id="__span-1-21"><a id="__codelineno-1-21" name="__codelineno-1-21" href="#diy-nodes-anytls-on-sing-box-__codelineno-1-21"></a>
+</span><span id="__span-1-22"><a id="__codelineno-1-22" name="__codelineno-1-22" href="#diy-nodes-anytls-on-sing-box-__codelineno-1-22"></a><span class="c1"># 确认版本, 确保有 with_quic</span>
+</span><span id="__span-1-23"><a id="__codelineno-1-23" name="__codelineno-1-23" href="#diy-nodes-anytls-on-sing-box-__codelineno-1-23"></a>sing-box<span class="w"> </span>version
+</span><span id="__span-1-24"><a id="__codelineno-1-24" name="__codelineno-1-24" href="#diy-nodes-anytls-on-sing-box-__codelineno-1-24"></a>
+</span><span id="__span-1-25"><a id="__codelineno-1-25" name="__codelineno-1-25" href="#diy-nodes-anytls-on-sing-box-__codelineno-1-25"></a><span class="c1"># 设置为开机自启动</span>
+</span><span id="__span-1-26"><a id="__codelineno-1-26" name="__codelineno-1-26" href="#diy-nodes-anytls-on-sing-box-__codelineno-1-26"></a>sudo<span class="w"> </span>systemctl<span class="w"> </span><span class="nb">enable</span><span class="w"> </span>--now<span class="w"> </span>sing-box.service
+</span><span id="__span-1-27"><a id="__codelineno-1-27" name="__codelineno-1-27" href="#diy-nodes-anytls-on-sing-box-__codelineno-1-27"></a>
+</span><span id="__span-1-28"><a id="__codelineno-1-28" name="__codelineno-1-28" href="#diy-nodes-anytls-on-sing-box-__codelineno-1-28"></a><span class="c1"># 查看服务状态</span>
+</span><span id="__span-1-29"><a id="__codelineno-1-29" name="__codelineno-1-29" href="#diy-nodes-anytls-on-sing-box-__codelineno-1-29"></a>systemctl<span class="w"> </span>status<span class="w"> </span>sing-box.service
+</span><span id="__span-1-30"><a id="__codelineno-1-30" name="__codelineno-1-30" href="#diy-nodes-anytls-on-sing-box-__codelineno-1-30"></a>
+</span><span id="__span-1-31"><a id="__codelineno-1-31" name="__codelineno-1-31" href="#diy-nodes-anytls-on-sing-box-__codelineno-1-31"></a><span class="c1"># 如果启动过程中出现任何错误，查看日志并进行修复</span>
+</span><span id="__span-1-32"><a id="__codelineno-1-32" name="__codelineno-1-32" href="#diy-nodes-anytls-on-sing-box-__codelineno-1-32"></a>journalctl<span class="w"> </span>-u<span class="w"> </span>sing-box
+</span></code></pre></div>
+<blockquote>
+<p>如何出现以下错误，需要在sing-box.service service区块添加 Environment="ENABLE_DEPRECATED_SPECIAL_OUTBOUNDS=true" 或者将 配置文件中 /etc/sing-box/config.json
+中 outbounds 中dns-out部分删除</p>
+<p>```json
+{
+ "type": "dns",
+ "tag": "dns-out"
+}</p>
+<p>```</p>
+<p>Jan 30 23:36:48 server-0hrxrx.novalocal sing-box[3807]: ERROR[0000] legacy special outbounds is deprecated in sing-box 1.11.0 and will be removed in sing-box 1.
+Jan 30 23:36:48 server-0hrxrx.novalocal sing-box[3807]: FATAL[0000] to continuing using this feature, set environment variable ENABLE_DEPRECATED_SPECIAL_OUTBOUNDS=true</p>
+</blockquote>
+<h2 id="diy-nodes-anytls-on-sing-box-3-tls">3. 准备 TLS 证书<a class="headerlink" href="#diy-nodes-anytls-on-sing-box-3-tls" title="Permanent link">¶</a></h2>
+<p>Any 默认情况下是需要 TLS</p>
+<p>安装 Certbot</p>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-2-1"><a id="__codelineno-2-1" name="__codelineno-2-1" href="#diy-nodes-anytls-on-sing-box-__codelineno-2-1"></a>sudo<span class="w"> </span>dnf<span class="w"> </span>install<span class="w"> </span>-y<span class="w"> </span>certbot
+</span></code></pre></div>
+<p>申请证书：</p>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-3-1"><a id="__codelineno-3-1" name="__codelineno-3-1" href="#diy-nodes-anytls-on-sing-box-__codelineno-3-1"></a><span class="c1"># 如果开启, 需放行80端口</span>
+</span><span id="__span-3-2"><a id="__codelineno-3-2" name="__codelineno-3-2" href="#diy-nodes-anytls-on-sing-box-__codelineno-3-2"></a>sudo<span class="w"> </span>firewall-cmd<span class="w"> </span>--add-port<span class="o">=</span><span class="m">80</span>/tcp<span class="w"> </span>--permanent
+</span><span id="__span-3-3"><a id="__codelineno-3-3" name="__codelineno-3-3" href="#diy-nodes-anytls-on-sing-box-__codelineno-3-3"></a>sudo<span class="w"> </span>firewall-cmd<span class="w"> </span>--reload
+</span><span id="__span-3-4"><a id="__codelineno-3-4" name="__codelineno-3-4" href="#diy-nodes-anytls-on-sing-box-__codelineno-3-4"></a>
+</span><span id="__span-3-5"><a id="__codelineno-3-5" name="__codelineno-3-5" href="#diy-nodes-anytls-on-sing-box-__codelineno-3-5"></a><span class="c1"># 申请证书：这里使用webroot方式申请，电子邮件地址（用于紧急续签及安全通知）</span>
+</span><span id="__span-3-6"><a id="__codelineno-3-6" name="__codelineno-3-6" href="#diy-nodes-anytls-on-sing-box-__codelineno-3-6"></a>sudo<span class="w"> </span>certbot<span class="w"> </span>certonly<span class="w"> </span>--standalone<span class="w"> </span>--domain<span class="w"> </span>anytls.example.top<span class="w"> </span>-m<span class="w"> </span>your_email_address<span class="w"> </span>--agree-tos
+</span></code></pre></div>
+<blockquote>
+<p>证书通常保存在 /etc/letsencrypt/live/anytls.example.top/ 目录下, 目录内包括：fullchain.pem （证书）、 privkey.pem（私钥） 、 cert.pem、 chain.pem，通常只需要：fullchain.pem 和 privkey.pem</p>
+</blockquote>
+<h2 id="diy-nodes-anytls-on-sing-box-4-anytls">4. 配置 AnyTLS 代理服务器<a class="headerlink" href="#diy-nodes-anytls-on-sing-box-4-anytls" title="Permanent link">¶</a></h2>
+<p>参考以下配置替换其中的域名、端口、uuid、密码，然后放入/etc/sing-box/config.json，一个简单的AnyTLS节点就配置完成了。</p>
+<blockquote>
+<p>sing-box提供了uuid生成工具 <code>sing-box generate uuid</code></p>
+</blockquote>
+<div class="language-json highlight"><pre><span></span><code><span id="__span-4-1"><a id="__codelineno-4-1" name="__codelineno-4-1" href="#diy-nodes-anytls-on-sing-box-__codelineno-4-1"></a><span class="p">{</span>
+</span><span id="__span-4-2"><a id="__codelineno-4-2" name="__codelineno-4-2" href="#diy-nodes-anytls-on-sing-box-__codelineno-4-2"></a><span class="w">  </span><span class="nt">"log"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-4-3"><a id="__codelineno-4-3" name="__codelineno-4-3" href="#diy-nodes-anytls-on-sing-box-__codelineno-4-3"></a><span class="w">    </span><span class="nt">"level"</span><span class="p">:</span><span class="w"> </span><span class="s2">"info"</span>
+</span><span id="__span-4-4"><a id="__codelineno-4-4" name="__codelineno-4-4" href="#diy-nodes-anytls-on-sing-box-__codelineno-4-4"></a><span class="w">  </span><span class="p">},</span>
+</span><span id="__span-4-5"><a id="__codelineno-4-5" name="__codelineno-4-5" href="#diy-nodes-anytls-on-sing-box-__codelineno-4-5"></a>
+</span><span id="__span-4-6"><a id="__codelineno-4-6" name="__codelineno-4-6" href="#diy-nodes-anytls-on-sing-box-__codelineno-4-6"></a><span class="w">  </span><span class="nt">"inbounds"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span>
+</span><span id="__span-4-7"><a id="__codelineno-4-7" name="__codelineno-4-7" href="#diy-nodes-anytls-on-sing-box-__codelineno-4-7"></a><span class="w">    </span><span class="p">{</span>
+</span><span id="__span-4-8"><a id="__codelineno-4-8" name="__codelineno-4-8" href="#diy-nodes-anytls-on-sing-box-__codelineno-4-8"></a><span class="w">        </span><span class="nt">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"anytls"</span><span class="p">,</span>
+</span><span id="__span-4-9"><a id="__codelineno-4-9" name="__codelineno-4-9" href="#diy-nodes-anytls-on-sing-box-__codelineno-4-9"></a><span class="w">        </span><span class="nt">"tag"</span><span class="p">:</span><span class="w"> </span><span class="s2">"anytls-in"</span><span class="p">,</span>
+</span><span id="__span-4-10"><a id="__codelineno-4-10" name="__codelineno-4-10" href="#diy-nodes-anytls-on-sing-box-__codelineno-4-10"></a>
+</span><span id="__span-4-11"><a id="__codelineno-4-11" name="__codelineno-4-11" href="#diy-nodes-anytls-on-sing-box-__codelineno-4-11"></a><span class="w">        </span><span class="nt">"listen"</span><span class="p">:</span><span class="w"> </span><span class="s2">"::"</span><span class="p">,</span>
+</span><span id="__span-4-12"><a id="__codelineno-4-12" name="__codelineno-4-12" href="#diy-nodes-anytls-on-sing-box-__codelineno-4-12"></a><span class="w">        </span><span class="nt">"listen_port"</span><span class="p">:</span><span class="w"> </span><span class="mi">8443</span><span class="p">,</span>
+</span><span id="__span-4-13"><a id="__codelineno-4-13" name="__codelineno-4-13" href="#diy-nodes-anytls-on-sing-box-__codelineno-4-13"></a>
+</span><span id="__span-4-14"><a id="__codelineno-4-14" name="__codelineno-4-14" href="#diy-nodes-anytls-on-sing-box-__codelineno-4-14"></a><span class="w">        </span><span class="nt">"users"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span>
+</span><span id="__span-4-15"><a id="__codelineno-4-15" name="__codelineno-4-15" href="#diy-nodes-anytls-on-sing-box-__codelineno-4-15"></a><span class="w">          </span><span class="p">{</span>
+</span><span id="__span-4-16"><a id="__codelineno-4-16" name="__codelineno-4-16" href="#diy-nodes-anytls-on-sing-box-__codelineno-4-16"></a><span class="w">            </span><span class="nt">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"sekai"</span><span class="p">,</span>
+</span><span id="__span-4-17"><a id="__codelineno-4-17" name="__codelineno-4-17" href="#diy-nodes-anytls-on-sing-box-__codelineno-4-17"></a><span class="w">            </span><span class="nt">"password"</span><span class="p">:</span><span class="w"> </span><span class="s2">"71a636a6-974d-4454-8653-4cc332a9cd3e"</span>
+</span><span id="__span-4-18"><a id="__codelineno-4-18" name="__codelineno-4-18" href="#diy-nodes-anytls-on-sing-box-__codelineno-4-18"></a><span class="w">          </span><span class="p">}</span>
+</span><span id="__span-4-19"><a id="__codelineno-4-19" name="__codelineno-4-19" href="#diy-nodes-anytls-on-sing-box-__codelineno-4-19"></a><span class="w">        </span><span class="p">],</span>
+</span><span id="__span-4-20"><a id="__codelineno-4-20" name="__codelineno-4-20" href="#diy-nodes-anytls-on-sing-box-__codelineno-4-20"></a><span class="w">        </span><span class="nt">"tls"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-4-21"><a id="__codelineno-4-21" name="__codelineno-4-21" href="#diy-nodes-anytls-on-sing-box-__codelineno-4-21"></a><span class="w">            </span><span class="nt">"enabled"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span>
+</span><span id="__span-4-22"><a id="__codelineno-4-22" name="__codelineno-4-22" href="#diy-nodes-anytls-on-sing-box-__codelineno-4-22"></a><span class="w">            </span><span class="nt">"server_name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"anytls.example.top"</span><span class="p">,</span>
+</span><span id="__span-4-23"><a id="__codelineno-4-23" name="__codelineno-4-23" href="#diy-nodes-anytls-on-sing-box-__codelineno-4-23"></a><span class="w">            </span><span class="nt">"certificate_path"</span><span class="p">:</span><span class="w"> </span><span class="s2">"/etc/letsencrypt/live/anytls.example.top/fullchain.pem"</span><span class="p">,</span>
+</span><span id="__span-4-24"><a id="__codelineno-4-24" name="__codelineno-4-24" href="#diy-nodes-anytls-on-sing-box-__codelineno-4-24"></a><span class="w">            </span><span class="nt">"key_path"</span><span class="p">:</span><span class="w"> </span><span class="s2">"/etc/letsencrypt/live/anytls.example.top/privkey.pem"</span>
+</span><span id="__span-4-25"><a id="__codelineno-4-25" name="__codelineno-4-25" href="#diy-nodes-anytls-on-sing-box-__codelineno-4-25"></a><span class="w">        </span><span class="p">}</span>
+</span><span id="__span-4-26"><a id="__codelineno-4-26" name="__codelineno-4-26" href="#diy-nodes-anytls-on-sing-box-__codelineno-4-26"></a><span class="w">    </span><span class="p">}</span>
+</span><span id="__span-4-27"><a id="__codelineno-4-27" name="__codelineno-4-27" href="#diy-nodes-anytls-on-sing-box-__codelineno-4-27"></a><span class="w">  </span><span class="p">],</span>
+</span><span id="__span-4-28"><a id="__codelineno-4-28" name="__codelineno-4-28" href="#diy-nodes-anytls-on-sing-box-__codelineno-4-28"></a>
+</span><span id="__span-4-29"><a id="__codelineno-4-29" name="__codelineno-4-29" href="#diy-nodes-anytls-on-sing-box-__codelineno-4-29"></a><span class="w">  </span><span class="nt">"outbounds"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span>
+</span><span id="__span-4-30"><a id="__codelineno-4-30" name="__codelineno-4-30" href="#diy-nodes-anytls-on-sing-box-__codelineno-4-30"></a><span class="w">    </span><span class="p">{</span>
+</span><span id="__span-4-31"><a id="__codelineno-4-31" name="__codelineno-4-31" href="#diy-nodes-anytls-on-sing-box-__codelineno-4-31"></a><span class="w">      </span><span class="nt">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"direct"</span>
+</span><span id="__span-4-32"><a id="__codelineno-4-32" name="__codelineno-4-32" href="#diy-nodes-anytls-on-sing-box-__codelineno-4-32"></a><span class="w">    </span><span class="p">}</span>
+</span><span id="__span-4-33"><a id="__codelineno-4-33" name="__codelineno-4-33" href="#diy-nodes-anytls-on-sing-box-__codelineno-4-33"></a><span class="w">  </span><span class="p">]</span>
+</span><span id="__span-4-34"><a id="__codelineno-4-34" name="__codelineno-4-34" href="#diy-nodes-anytls-on-sing-box-__codelineno-4-34"></a><span class="p">}</span>
+</span></code></pre></div>
+<h2 id="diy-nodes-anytls-on-sing-box-5-udp">5. 防火墙开放 UDP 端口<a class="headerlink" href="#diy-nodes-anytls-on-sing-box-5-udp" title="Permanent link">¶</a></h2>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-5-1"><a id="__codelineno-5-1" name="__codelineno-5-1" href="#diy-nodes-anytls-on-sing-box-__codelineno-5-1"></a>firewall-cmd<span class="w"> </span>--permanent<span class="w"> </span>--add-port<span class="o">=</span><span class="m">8443</span>/tcp
+</span><span id="__span-5-2"><a id="__codelineno-5-2" name="__codelineno-5-2" href="#diy-nodes-anytls-on-sing-box-__codelineno-5-2"></a>firewall-cmd<span class="w"> </span>--reload
+</span></code></pre></div>
+<h2 id="diy-nodes-anytls-on-sing-box-6">6. 检测配置<a class="headerlink" href="#diy-nodes-anytls-on-sing-box-6" title="Permanent link">¶</a></h2>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-6-1"><a id="__codelineno-6-1" name="__codelineno-6-1" href="#diy-nodes-anytls-on-sing-box-__codelineno-6-1"></a>sing-box<span class="w"> </span>check<span class="w"> </span>-c<span class="w"> </span>/etc/sing-box/config.json
+</span></code></pre></div>
+<h2 id="diy-nodes-anytls-on-sing-box-7-sing-box">7. 重启 sing-box<a class="headerlink" href="#diy-nodes-anytls-on-sing-box-7-sing-box" title="Permanent link">¶</a></h2>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-7-1"><a id="__codelineno-7-1" name="__codelineno-7-1" href="#diy-nodes-anytls-on-sing-box-__codelineno-7-1"></a>systemctl<span class="w"> </span>restart<span class="w"> </span>sing-box
+</span></code></pre></div>
+<p>当日志中出现 <code>inbound/anytls[anytls-in]: tcp server started at [::]:8443</code> 表示 sing-box AnyTLS 节点监听在 8443 端口</p>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-8-1"><a id="__codelineno-8-1" name="__codelineno-8-1" href="#diy-nodes-anytls-on-sing-box-__codelineno-8-1"></a>sing-box<span class="o">[</span><span class="m">12182</span><span class="o">]</span>:<span class="w"> </span>INFO<span class="o">[</span><span class="m">0000</span><span class="o">]</span><span class="w"> </span>network:<span class="w"> </span>updated<span class="w"> </span>default<span class="w"> </span>interface<span class="w"> </span>eth0,<span class="w"> </span>index<span class="w"> </span><span class="m">2</span>
+</span><span id="__span-8-2"><a id="__codelineno-8-2" name="__codelineno-8-2" href="#diy-nodes-anytls-on-sing-box-__codelineno-8-2"></a>sing-box<span class="o">[</span><span class="m">12182</span><span class="o">]</span>:<span class="w"> </span>INFO<span class="o">[</span><span class="m">0000</span><span class="o">]</span><span class="w"> </span>inbound/anytls<span class="o">[</span>anytls-in<span class="o">]</span>:<span class="w"> </span>tcp<span class="w"> </span>server<span class="w"> </span>started<span class="w"> </span>at<span class="w"> </span><span class="o">[</span>::<span class="o">]</span>:8443
+</span><span id="__span-8-3"><a id="__codelineno-8-3" name="__codelineno-8-3" href="#diy-nodes-anytls-on-sing-box-__codelineno-8-3"></a>sing-box<span class="o">[</span><span class="m">12182</span><span class="o">]</span>:<span class="w"> </span>INFO<span class="o">[</span><span class="m">0000</span><span class="o">]</span><span class="w"> </span>sing-box<span class="w"> </span>started<span class="w"> </span><span class="o">(</span><span class="m">0</span>.11s<span class="o">)</span>
+</span></code></pre></div>
+<h2 id="diy-nodes-anytls-on-sing-box-8">8. 测试<a class="headerlink" href="#diy-nodes-anytls-on-sing-box-8" title="Permanent link">¶</a></h2>
+<p>V2rayN 测试，将以下连接字符串中域名替换成真实域名，粘贴到 v2rayN 节点分组，然后测试节点真连接延迟：</p>
+<p>连接字符串： <code>anytls://71a636a6-974d-4454-8653-4cc332a9cd3e@anytls.example.top:8443?security=tls&amp;sni=anytls.example.top&amp;type=tcp#anytls-node</code></p>
+<p>如果使用 clash 系列客户端, 可以将以下配置中的 hy2.example.top 替换成真实域名， 导入到客户端进行测试：</p>
+<div class="language-yaml highlight"><pre><span></span><code><span id="__span-9-1"><a id="__codelineno-9-1" name="__codelineno-9-1" href="#diy-nodes-anytls-on-sing-box-__codelineno-9-1"></a><span class="nt">mixed-port</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">7890</span>
+</span><span id="__span-9-2"><a id="__codelineno-9-2" name="__codelineno-9-2" href="#diy-nodes-anytls-on-sing-box-__codelineno-9-2"></a><span class="nt">allow-lan</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">true</span>
+</span><span id="__span-9-3"><a id="__codelineno-9-3" name="__codelineno-9-3" href="#diy-nodes-anytls-on-sing-box-__codelineno-9-3"></a><span class="nt">bind-address</span><span class="p">:</span><span class="w"> </span><span class="s">'*'</span>
+</span><span id="__span-9-4"><a id="__codelineno-9-4" name="__codelineno-9-4" href="#diy-nodes-anytls-on-sing-box-__codelineno-9-4"></a><span class="nt">mode</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">rule</span>
+</span><span id="__span-9-5"><a id="__codelineno-9-5" name="__codelineno-9-5" href="#diy-nodes-anytls-on-sing-box-__codelineno-9-5"></a><span class="nt">log-level</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">info</span>
+</span><span id="__span-9-6"><a id="__codelineno-9-6" name="__codelineno-9-6" href="#diy-nodes-anytls-on-sing-box-__codelineno-9-6"></a><span class="nt">external-controller</span><span class="p">:</span><span class="w"> </span><span class="s">'127.0.0.1:9090'</span>
+</span><span id="__span-9-7"><a id="__codelineno-9-7" name="__codelineno-9-7" href="#diy-nodes-anytls-on-sing-box-__codelineno-9-7"></a><span class="nt">dns</span><span class="p">:</span>
+</span><span id="__span-9-8"><a id="__codelineno-9-8" name="__codelineno-9-8" href="#diy-nodes-anytls-on-sing-box-__codelineno-9-8"></a><span class="w">    </span><span class="nt">enable</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">true</span>
+</span><span id="__span-9-9"><a id="__codelineno-9-9" name="__codelineno-9-9" href="#diy-nodes-anytls-on-sing-box-__codelineno-9-9"></a><span class="w">    </span><span class="nt">ipv6</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">false</span>
+</span><span id="__span-9-10"><a id="__codelineno-9-10" name="__codelineno-9-10" href="#diy-nodes-anytls-on-sing-box-__codelineno-9-10"></a><span class="w">    </span><span class="nt">default-nameserver</span><span class="p">:</span><span class="w"> </span><span class="p p-Indicator">[</span><span class="nv">223.5.5.5</span><span class="p p-Indicator">,</span><span class="w"> </span><span class="nv">119.29.29.29</span><span class="p p-Indicator">]</span>
+</span><span id="__span-9-11"><a id="__codelineno-9-11" name="__codelineno-9-11" href="#diy-nodes-anytls-on-sing-box-__codelineno-9-11"></a><span class="w">    </span><span class="nt">enhanced-mode</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">fake-ip</span>
+</span><span id="__span-9-12"><a id="__codelineno-9-12" name="__codelineno-9-12" href="#diy-nodes-anytls-on-sing-box-__codelineno-9-12"></a><span class="w">    </span><span class="nt">fake-ip-range</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">198.18.0.1/16</span>
+</span><span id="__span-9-13"><a id="__codelineno-9-13" name="__codelineno-9-13" href="#diy-nodes-anytls-on-sing-box-__codelineno-9-13"></a><span class="w">    </span><span class="nt">use-hosts</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">true</span>
+</span><span id="__span-9-14"><a id="__codelineno-9-14" name="__codelineno-9-14" href="#diy-nodes-anytls-on-sing-box-__codelineno-9-14"></a><span class="w">    </span><span class="nt">nameserver</span><span class="p">:</span><span class="w"> </span><span class="p p-Indicator">[</span><span class="s">'https://doh.pub/dns-query'</span><span class="p p-Indicator">,</span><span class="w"> </span><span class="s">'https://dns.alidns.com/dns-query'</span><span class="p p-Indicator">]</span>
+</span><span id="__span-9-15"><a id="__codelineno-9-15" name="__codelineno-9-15" href="#diy-nodes-anytls-on-sing-box-__codelineno-9-15"></a><span class="w">    </span><span class="nt">fallback</span><span class="p">:</span><span class="w"> </span><span class="p p-Indicator">[</span><span class="s">'https://doh-pure.onedns.net/dns-query'</span><span class="p p-Indicator">,</span><span class="w"> </span><span class="s">'https://ada.openbld.net/dns-query'</span><span class="p p-Indicator">,</span><span class="w"> </span><span class="s">'https://223.5.5.5/dns-query'</span><span class="p p-Indicator">,</span><span class="w"> </span><span class="s">'https://223.6.6.6/dns-query'</span><span class="p p-Indicator">]</span>
+</span><span id="__span-9-16"><a id="__codelineno-9-16" name="__codelineno-9-16" href="#diy-nodes-anytls-on-sing-box-__codelineno-9-16"></a><span class="w">    </span><span class="nt">fallback-filter</span><span class="p">:</span><span class="w"> </span><span class="p p-Indicator">{</span><span class="nt"> geoip</span><span class="p">:</span><span class="w"> </span><span class="nv">true</span><span class="p p-Indicator">,</span><span class="nt"> ipcidr</span><span class="p">:</span><span class="w"> </span><span class="p p-Indicator">[</span><span class="nv">240.0.0.0/4</span><span class="p p-Indicator">,</span><span class="w"> </span><span class="nv">0.0.0.0/32</span><span class="p p-Indicator">]</span><span class="w"> </span><span class="p p-Indicator">}</span>
+</span><span id="__span-9-17"><a id="__codelineno-9-17" name="__codelineno-9-17" href="#diy-nodes-anytls-on-sing-box-__codelineno-9-17"></a><span class="nt">proxies</span><span class="p">:</span>
+</span><span id="__span-9-18"><a id="__codelineno-9-18" name="__codelineno-9-18" href="#diy-nodes-anytls-on-sing-box-__codelineno-9-18"></a>
+</span><span id="__span-9-19"><a id="__codelineno-9-19" name="__codelineno-9-19" href="#diy-nodes-anytls-on-sing-box-__codelineno-9-19"></a><span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="p p-Indicator">{</span><span class="nt"> name</span><span class="p">:</span><span class="w"> </span><span class="nv">anytls-on-sing-box</span><span class="p p-Indicator">,</span><span class="nt"> type</span><span class="p">:</span><span class="w"> </span><span class="nv">anytls</span><span class="p p-Indicator">,</span><span class="nt"> server</span><span class="p">:</span><span class="w"> </span><span class="nv">anytls.example.top</span><span class="p p-Indicator">,</span><span class="nt"> port</span><span class="p">:</span><span class="w"> </span><span class="nv">8443</span><span class="p p-Indicator">,</span><span class="nt"> password</span><span class="p">:</span><span class="w"> </span><span class="nv">71a636a6-974d-4454-8653-4cc332a9cd3e</span><span class="p p-Indicator">,</span><span class="nt"> udp</span><span class="p">:</span><span class="w"> </span><span class="nv">true</span><span class="p p-Indicator">,</span><span class="nt"> sni</span><span class="p">:</span><span class="w"> </span><span class="nv">anytls.example.top</span><span class="w"> </span><span class="p p-Indicator">}</span>
+</span><span id="__span-9-20"><a id="__codelineno-9-20" name="__codelineno-9-20" href="#diy-nodes-anytls-on-sing-box-__codelineno-9-20"></a>
+</span><span id="__span-9-21"><a id="__codelineno-9-21" name="__codelineno-9-21" href="#diy-nodes-anytls-on-sing-box-__codelineno-9-21"></a><span class="nt">proxy-groups</span><span class="p">:</span>
+</span><span id="__span-9-22"><a id="__codelineno-9-22" name="__codelineno-9-22" href="#diy-nodes-anytls-on-sing-box-__codelineno-9-22"></a><span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="p p-Indicator">{</span><span class="nt"> name</span><span class="p">:</span><span class="w"> </span><span class="nv">anytls-group</span><span class="p p-Indicator">,</span><span class="nt"> type</span><span class="p">:</span><span class="w"> </span><span class="nv">select</span><span class="p p-Indicator">,</span><span class="nt"> proxies</span><span class="p">:</span><span class="w"> </span><span class="p p-Indicator">[</span><span class="s">'anytls-on-sing-box'</span><span class="p p-Indicator">],</span><span class="nt"> url</span><span class="p">:</span><span class="w"> </span><span class="s">'http://www.gstatic.com/generate_204'</span><span class="p p-Indicator">,</span><span class="nt"> interval</span><span class="p">:</span><span class="w"> </span><span class="nv">86400</span><span class="w"> </span><span class="p p-Indicator">}</span>
+</span><span id="__span-9-23"><a id="__codelineno-9-23" name="__codelineno-9-23" href="#diy-nodes-anytls-on-sing-box-__codelineno-9-23"></a><span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="p p-Indicator">{</span><span class="nt"> name</span><span class="p">:</span><span class="w"> </span><span class="nv">自动选择</span><span class="p p-Indicator">,</span><span class="nt"> type</span><span class="p">:</span><span class="w"> </span><span class="nv">url-test</span><span class="p p-Indicator">,</span><span class="nt"> proxies</span><span class="p">:</span><span class="w"> </span><span class="p p-Indicator">[</span><span class="s">'anytls-on-sing-box'</span><span class="p p-Indicator">],</span><span class="nt"> url</span><span class="p">:</span><span class="w"> </span><span class="s">'http://www.gstatic.com/generate_204'</span><span class="p p-Indicator">,</span><span class="nt"> interval</span><span class="p">:</span><span class="w"> </span><span class="nv">86400</span><span class="w"> </span><span class="p p-Indicator">}</span>
+</span><span id="__span-9-24"><a id="__codelineno-9-24" name="__codelineno-9-24" href="#diy-nodes-anytls-on-sing-box-__codelineno-9-24"></a><span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="p p-Indicator">{</span><span class="nt"> name</span><span class="p">:</span><span class="w"> </span><span class="nv">故障转移</span><span class="p p-Indicator">,</span><span class="nt"> type</span><span class="p">:</span><span class="w"> </span><span class="nv">fallback</span><span class="p p-Indicator">,</span><span class="nt"> proxies</span><span class="p">:</span><span class="w"> </span><span class="p p-Indicator">[</span><span class="s">'anytls-on-sing-box'</span><span class="p p-Indicator">],</span><span class="nt"> url</span><span class="p">:</span><span class="w"> </span><span class="s">'http://www.gstatic.com/generate_204'</span><span class="p p-Indicator">,</span><span class="nt"> interval</span><span class="p">:</span><span class="w"> </span><span class="nv">7200</span><span class="w"> </span><span class="p p-Indicator">}</span>
+</span><span id="__span-9-25"><a id="__codelineno-9-25" name="__codelineno-9-25" href="#diy-nodes-anytls-on-sing-box-__codelineno-9-25"></a><span class="nt">rules</span><span class="p">:</span>
+</span><span id="__span-9-26"><a id="__codelineno-9-26" name="__codelineno-9-26" href="#diy-nodes-anytls-on-sing-box-__codelineno-9-26"></a><span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="s">'DOMAIN-SUFFIX,cn,DIRECT'</span>
+</span><span id="__span-9-27"><a id="__codelineno-9-27" name="__codelineno-9-27" href="#diy-nodes-anytls-on-sing-box-__codelineno-9-27"></a><span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="s">'DOMAIN-KEYWORD,-cn,DIRECT'</span>
+</span><span id="__span-9-28"><a id="__codelineno-9-28" name="__codelineno-9-28" href="#diy-nodes-anytls-on-sing-box-__codelineno-9-28"></a><span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="s">'GEOIP,CN,DIRECT'</span>
+</span><span id="__span-9-29"><a id="__codelineno-9-29" name="__codelineno-9-29" href="#diy-nodes-anytls-on-sing-box-__codelineno-9-29"></a><span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="s">'MATCH,anytls-group'</span>
+</span></code></pre></div>
+<h2 id="diy-nodes-anytls-on-sing-box-_1">参考资料<a class="headerlink" href="#diy-nodes-anytls-on-sing-box-_1" title="Permanent link">¶</a></h2>
+<p><a href="https://www.youtube.com/watch?v=AmA37gOaqOs">AnyTLS+Reality+SingBox节点搭建教程</a></p></body></html></section></section></div><style>.print-site-enumerate-headings #index > h1:before { content: '1 ' }
 
                 .print-site-enumerate-headings #index h2:before { content: '1.' counter(counter-index-2) ' ' }
                 .print-site-enumerate-headings #index h2 {  counter-reset: counter-index-3 ;  counter-increment: counter-index-2 }
@@ -7329,6 +7579,11 @@ Jan 30 23:36:48 server-0hrxrx.novalocal sing-box[3807]: FATAL[0000] to continuin
 
                 .print-site-enumerate-headings #diy-nodes-tuic-on-sing-box h2:before { content: '12.3.' counter(counter-diy-nodes-tuic-on-sing-box-2) ' ' }
                 .print-site-enumerate-headings #diy-nodes-tuic-on-sing-box h2 {  counter-increment: counter-diy-nodes-tuic-on-sing-box-2 }
+            
+.print-site-enumerate-headings #diy-nodes-anytls-on-sing-box > h1:before { content: '12.4 ' }
+
+                .print-site-enumerate-headings #diy-nodes-anytls-on-sing-box h2:before { content: '12.4.' counter(counter-diy-nodes-anytls-on-sing-box-2) ' ' }
+                .print-site-enumerate-headings #diy-nodes-anytls-on-sing-box h2 {  counter-increment: counter-diy-nodes-anytls-on-sing-box-2 }
             </style>
 
 
