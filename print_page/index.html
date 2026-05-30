@@ -3521,7 +3521,7 @@ document.getElementById("printpdfbtn").addEventListener('click', printPdf, false
 <blockquote>
 <p>点击下方按钮下载最新版本</p>
 </blockquote>
-<p><a href="https://gh-proxy.org/https://github.com/hiddify/hiddify-app/releases/latest/download/Hiddify-Windows-Setup-x64.Msix"><strong><em>*点击下载</em></strong>*</a></p>
+<p><a href="https://gh-proxy.org/https://github.com/hiddify/hiddify-app/releases/latest/download/Hiddify-Windows-x64.msix"><strong><em>*点击下载</em></strong>*</a></p>
 <blockquote>
 <p>其他版本请访问 官方 <a href="https://github.com/hiddify/hiddify-app/releases/">GithHub</a> 下载</p>
 </blockquote>
@@ -5548,7 +5548,7 @@ Jan 30 23:36:48 server-0hrxrx.novalocal sing-box[3807]: FATAL[0000] to continuin
 <p>把这个链接里的 url 参数拿出来</p>
 <p>for Linux</p>
 <div class="language-bash highlight"><pre><span></span><code><span id="__span-6-1"><a id="__codelineno-6-1" name="__codelineno-6-1" href="#sing-box-sing-box-install-__codelineno-6-1"></a><span class="c1"># 下载配置文件</span>
-</span><span id="__span-6-2"><a id="__codelineno-6-2" name="__codelineno-6-2" href="#sing-box-sing-box-install-__codelineno-6-2"></a>curl<span class="w"> </span>-o<span class="w"> </span>config.json<span class="w"> </span>https://your_airport.com/api/v1/client/subscribe?token<span class="o">=</span>xxxxxxxx?flag<span class="o">=</span>sing-box
+</span><span id="__span-6-2"><a id="__codelineno-6-2" name="__codelineno-6-2" href="#sing-box-sing-box-install-__codelineno-6-2"></a>curl<span class="w"> </span>-o<span class="w"> </span>config.json<span class="w"> </span>https://your_subscription_link?flag<span class="o">=</span>sing-box
 </span><span id="__span-6-3"><a id="__codelineno-6-3" name="__codelineno-6-3" href="#sing-box-sing-box-install-__codelineno-6-3"></a>
 </span><span id="__span-6-4"><a id="__codelineno-6-4" name="__codelineno-6-4" href="#sing-box-sing-box-install-__codelineno-6-4"></a><span class="c1"># 格式化config.json, 方便阅读。</span>
 </span><span id="__span-6-5"><a id="__codelineno-6-5" name="__codelineno-6-5" href="#sing-box-sing-box-install-__codelineno-6-5"></a>sing-box<span class="w"> </span>format<span class="w"> </span>-c<span class="w"> </span>./config.json<span class="w"> </span>&gt;<span class="w"> </span>config_readable.json
@@ -7767,8 +7767,10 @@ Jan 30 23:36:48 server-0hrxrx.novalocal sing-box[3807]: FATAL[0000] to continuin
 <p>方法三：本地工具获取目 （方便，但无法指定区域距离，访问速度会有影响）</p>
 <p><a href="https://github.com/XTLS/RealiTLScanner/releases">RealiTLScanner工具地址</a></p>
 <div class="language-bash highlight"><pre><span></span><code><span id="__span-2-1"><a id="__codelineno-2-1" name="__codelineno-2-1" href="#diy-nodes-anytls-reality-on-sing-box-__codelineno-2-1"></a>wget<span class="w"> </span>-O<span class="w"> </span>/tmp/RealiTLScanner<span class="w"> </span>https://github.com/XTLS/RealiTLScanner/releases/download/v0.2.1/RealiTLScanner-linux-64
-</span><span id="__span-2-2"><a id="__codelineno-2-2" name="__codelineno-2-2" href="#diy-nodes-anytls-reality-on-sing-box-__codelineno-2-2"></a>chmod<span class="w"> </span>+x<span class="w"> </span>/tmp/RealiTLScanner
-</span><span id="__span-2-3"><a id="__codelineno-2-3" name="__codelineno-2-3" href="#diy-nodes-anytls-reality-on-sing-box-__codelineno-2-3"></a>./RealiTLScanner<span class="w"> </span>-addr<span class="w"> </span>&lt;your_server_ip&gt;
+</span><span id="__span-2-2"><a id="__codelineno-2-2" name="__codelineno-2-2" href="#diy-nodes-anytls-reality-on-sing-box-__codelineno-2-2"></a>wget<span class="w"> </span>-O<span class="w"> </span>/tmp/Country.mmdb<span class="w"> </span>https://github.com/Loyalsoldier/geoip/releases/latest/download/Country.mmdb
+</span><span id="__span-2-3"><a id="__codelineno-2-3" name="__codelineno-2-3" href="#diy-nodes-anytls-reality-on-sing-box-__codelineno-2-3"></a>chmod<span class="w"> </span>+x<span class="w"> </span>/tmp/RealiTLScanner
+</span><span id="__span-2-4"><a id="__codelineno-2-4" name="__codelineno-2-4" href="#diy-nodes-anytls-reality-on-sing-box-__codelineno-2-4"></a><span class="nb">cd</span><span class="w"> </span>/tmp
+</span><span id="__span-2-5"><a id="__codelineno-2-5" name="__codelineno-2-5" href="#diy-nodes-anytls-reality-on-sing-box-__codelineno-2-5"></a>./RealiTLScanner<span class="w"> </span>-addr<span class="w"> </span>&lt;your_server_ip&gt;
 </span></code></pre></div>
 <p><code>feasible=true</code> 基本上能拿来使用。使用前最后打开浏览器看一下，是否是正规可靠的网站。</p>
 <h2 id="diy-nodes-anytls-reality-on-sing-box-5-anytls-reality">5. 配置 AnyTLS + Reality 代理服务器<a class="headerlink" href="#diy-nodes-anytls-reality-on-sing-box-5-anytls-reality" title="Permanent link">¶</a></h2>
