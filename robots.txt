@@ -3,4 +3,4 @@ User-agent: *
 Disallow: /assets/javascripts/
 Disallow: /assets/stylesheets/
 
-Sitemap: https://yourdomain.com/sitemap.xml
+Sitemap: https://docs.proxyguide.org/sitemap.xml
